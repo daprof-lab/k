@@ -1,8 +1,8 @@
-# **Table of contents**
+# Table of contents
 
 * [🏠 Introduction to KAPE](README.md)
 
-## **Forensic Artifacts**
+## Forensic Artifacts
 
 * [💻 Core OS & File System](core_os_artifacts.md)
   * [🎯 Targets](core_os_artifacts_targets.md)
@@ -38,7 +38,6 @@
     * [⚙️ RegRipper Hive Parser](details/RegRipper.md)
     * [⚙️ SrumECmd SRUM Parser](details/SrumECmd.md)
     * [⚙️ WxTCmd Timeline Parser](details/WxTCmd.md)
-
 * [📱 Application Execution & Data](applications.md)
   * [🎯 Targets](applications_targets.md)
     * [🎯 BitTorrent Client](details/BitTorrent.md)
@@ -54,7 +53,7 @@
     * [🎯 Steam Gaming Platform](details/Steam.md)
     * [🎯 Telegram Desktop](details/Telegram.md)
     * [🎯 uTorrent Client](details/uTorrent.md)
-    * [🎯 VLC Media Player](details/VLC Media Player.md)
+    * [\[🎯 VLC Media Player\](details/VLC Media Player.md)](forensic-artifacts/applications/applications_targets/vlc-media-player-details-vlc-media-player-md.md)
     * [🎯 VS Code Workspace](details/VisualStudioCode.md)
     * [🎯 WhatsApp Desktop](details/WhatsApp.md)
   * [⚙️ Modules](applications_modules.md)
@@ -63,7 +62,6 @@
     * [⚙️ Teams LevelDB Parser](details/TeamsParser.md)
     * [⚙️ TeraCopy Database Parser](details/SQLite3_TeraCopy_Main.md)
     * [⚙️ VLC Recent Files Parser](details/VLSeeRecent_VLCRecentFiles.md)
-
 * [🌐 Network & Web Browsers](network_browsers.md)
   * [🎯 Targets](network_browsers_targets.md)
     * [🎯 Apache Web Server Logs](details/ApacheAccessLog.md)
@@ -91,7 +89,6 @@
     * [⚙️ NirSoft Browsing Timeline](details/NirSoft_BrowsingHistoryView.md)
     * [⚙️ NirSoft WebPass Parser](details/NirSoft_WebBrowserPassView.md)
     * [⚙️ Universal Browser Parser](details/BrowserParser.md)
-
 * [☁️ Cloud Storage & Remote Access](cloud_remote.md)
   * [🎯 Targets](cloud_remote_targets.md)
     * [🎯 Ammyy Admin](details/Ammyy.md)
@@ -115,7 +112,7 @@
     * [⚙️ RDP Usage Event Parser](details/LogParser_RDPUsageEvents.md)
     * [⚙️ WinSCP Session Parser](details/WinSCP_Session.md)
 
-## **Analysis & Hunting**
+## Analysis & Hunting
 
 * [🛡️ Threat Hunting, AV & Logs](threat_hunting.md)
   * [🎯 Targets](threat_hunting_targets.md)
@@ -140,7 +137,6 @@
     * [⚙️ SANS DeepBlueCLI](details/DeepblueCLI.md)
     * [⚙️ Thor IOC Scanner](details/Thor_Scan.md)
     * [⚙️ Zircolite Sigma Scanner](details/Zircolite_Scan.md)
-
 * [🧠 Memory & Virtualization](memory_virtualization.md)
   * [🎯 Targets](memory_virtualization_targets.md)
     * [🎯 Kali WSL Instances](details/Kali.md)
@@ -160,7 +156,6 @@
     * [⚙️ Volatility malfind](details/Volatility_malfind.md)
     * [⚙️ Volatility netscan](details/Volatility_netscan.md)
     * [⚙️ Volatility pslist](details/Volatility_pslist.md)
-
 * [📦 Compound & Automation Packages](compound.md)
   * [🎯 Targets](compound_targets.md)
     * [🎯 Basic Triage Collection](details/!BasicCollection.md)
