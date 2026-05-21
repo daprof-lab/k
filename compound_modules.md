@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 
-**Module Execution Info:** These modules automate the execution of multiple individual parser modules or run sync tools to update targets and maps.
+**Module Execution Info:** These modules process data collected under the Compound & Automation Packages category using specialized analytical tools. Click on any **Short Name** to view a dedicated detail page including use-cases and KAPE module definitions.
 
 {% endhint %}
 
@@ -12,15 +12,15 @@
 
 ## **Available Modules (.mkape)**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **\!EZParser.mkape** | Run all Eric Zimmerman Parsers | Phill Moore | 1.5 |
-| **\!\!ToolSync.mkape** | Sync for new Maps, Batch Files, Targets and Modules | Andrew Rathbun / Andreas Hunkeler | 1.0 |
-| **KAPE\_Automation.mkape** | Module to run for KAPE automation | Brian Maloney | 1.0 |
-| **LogParser.mkape** | LogParser Compound Module | Andrew Rathbun | 1.0 |
-| **SOFELK\_Parser.mkape** | Parsing for SOF-ELK Instance | Tony Knutson / Andrew Rathbun | 1.2 |
-| **bstrings.mkape** | Run all bstrings Modules | Andrew Rathbun | 1.0 |
-| **Reghunter.mkape** | Execute all Reghunter modules | Georg Lauenstein | 1.0 |
+| Short Name | Description | File Name | Author | Version |
+| :--- | :--- | :--- | :--- | :--- |
+| [**EZParser Compound Suite**](details/!EZParser.md) | Runs all Eric Zimmerman analytical tools consecutively against their respective targets. | **!EZParser.mkape** | Phill Moore | 1.5 |
+| [**KAPE ToolSync Script**](details/!!ToolSync.md) | Automates checking Github repositories to update local KAPE maps, targets, and modules. | **!!ToolSync.mkape** | Andrew Rathbun / Andreas Hunkeler | 1.0 |
+| [**Master KAPE Automation**](details/KAPE_Automation.md) | Runs a fully integrated suite of analytical parsers to process a complete triage folder. | **KAPE_Automation.mkape** | Brian Maloney | 1.0 |
+| [**LogParser Compound Module**](details/LogParser.md) | Orchestrates LogParser scripts to analyze IIS, RDP, and system logs concurrently. | **LogParser.mkape** | Andrew Rathbun | 1.0 |
+| [**SOF-ELK Processing Sync**](details/SOFELK_Parser.md) | Prepares and parses extracted forensic artifacts to facilitate ingestion into a SOF-ELK server. | **SOFELK_Parser.mkape** | Tony Knutson / Andrew Rathbun | 1.2 |
+| [**bstrings Master Scanner**](details/bstrings.md) | Runs multiple bstrings modules to extract URLs, emails, and IPs from large data volumes. | **bstrings.mkape** | Andrew Rathbun | 1.0 |
+| [**Reghunter Suite**](details/Reghunter.md) | Executes the complete collection of Reghunter parsers against all acquired registry hives. | **Reghunter.mkape** | Georg Lauenstein | 1.0 |
 
 ---
 

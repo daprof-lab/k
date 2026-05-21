@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 
-**Target Collection Info:** These targets guide KAPE to collect artifacts related to remote desktop systems, remote management applications, and cloud-based file synchronization services.
+**Target Collection Info:** These targets guide KAPE to collect raw operating system and application forensic files relating to cloud storage & remote access. Click on any **Short Name** to view a dedicated detail page including forensics value and KAPE target definitions.
 
 {% endhint %}
 
@@ -12,22 +12,22 @@
 
 ## **Available Targets (.tkape)**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **AnyDesk.tkape** | AnyDesk | Andrew Rathbun / Scott Hanson | 1.5 |
-| **TeamViewerLogs.tkape** | TeamViewer Logs | Hadar Yudovich / Sam Smoker | 2.0 |
-| **RDPLogs.tkape** | RDP Logs | Drew Ervin | 1.0 |
-| **RDPCache.tkape** | RDP Cache Files | Hadar Yudovich | 1.1 |
-| **ScreenConnect.tkape** | ScreenConnect Data (ConnectWise Control) | Drew Ervin | 1.0 |
-| **Splashtop.tkape** | Splashtop | Andrew Rathbun / Yogesh Khatri | 2.0 |
-| **LogMeIn.tkape** | LogMeIn Data | Drew Ervin | 1.0 |
-| **Ammyy.tkape** | Ammyy Data | Drew Ervin | 1.0 |
-| **Dropbox\_UserFiles.tkape** | Dropbox Cloud Storage Files | Chad Tilbury | 1.0 |
-| **Dropbox\_Metadata.tkape** | Dropbox Cloud Storage Metadata | Chad Tilbury / Andrew Rathbun | 1.5 |
-| **OneDrive\_UserFiles.tkape** | Microsoft OneDrive Storage Files | Chad Tilbury | 1.0 |
-| **OneDrive\_Metadata.tkape** | Microsoft OneDrive Storage Metadata | Chad Tilbury / Brian Maloney | 2.0 |
-| **GoogleDrive\_Metadata.tkape** | Google Drive Metadata | Chad Tilbury | 1.1 |
-| **Megasync.tkape** | MegaSync Data Collection | Vito Alfano | 1.0 |
+| Short Name | Description | File Name | Author | Version |
+| :--- | :--- | :--- | :--- | :--- |
+| [**AnyDesk Remote**](details/AnyDesk.md) | AnyDesk logs, configuration settings, user session profiles, and speed test databases. | **AnyDesk.tkape** | Andrew Rathbun / Scott Hanson | 1.5 |
+| [**TeamViewer Logs**](details/TeamViewerLogs.md) | Connection history logs, remote ID configurations, and session diagnostic tables for TeamViewer. | **TeamViewerLogs.tkape** | Hadar Yudovich / Sam Smoker | 2.0 |
+| [**RDP Event Logs**](details/RDPLogs.md) | Windows Event Logs mapping Terminal Services connections, logins, and session timeouts. | **RDPLogs.tkape** | Drew Ervin | 1.0 |
+| [**RDP Bitmap Cache**](details/RDPCache.md) | Cached display tiles from Remote Desktop sessions. Reconstructs screens viewed by remote attackers. | **RDPCache.tkape** | Hadar Yudovich | 1.1 |
+| [**ScreenConnect Client**](details/ScreenConnect.md) | Logs, server configs, and diagnostic metrics from ConnectWise/ScreenConnect agents. | **ScreenConnect.tkape** | Drew Ervin | 1.0 |
+| [**Splashtop Remote**](details/Splashtop.md) | Splashtop local log structures, active sessions, and client credentials databases. | **Splashtop.tkape** | Andrew Rathbun / Yogesh Khatri | 2.0 |
+| [**LogMeIn Client**](details/LogMeIn.md) | Session configurations, activity logs, and system settings for LogMeIn remote access. | **LogMeIn.tkape** | Drew Ervin | 1.0 |
+| [**Ammyy Admin**](details/Ammyy.md) | Configuration parameters, server records, and connection diaries from Ammyy Admin. | **Ammyy.tkape** | Drew Ervin | 1.0 |
+| [**Dropbox User Files**](details/Dropbox_UserFiles.md) | Local Dropbox synchronization directories and cached operational databases. | **Dropbox_UserFiles.tkape** | Chad Tilbury | 1.0 |
+| [**Dropbox Sync Metadata**](details/Dropbox_Metadata.md) | SQL databases detailing Dropbox file synchronization timelines, file ids, and hashes. | **Dropbox_Metadata.tkape** | Chad Tilbury / Andrew Rathbun | 1.5 |
+| [**OneDrive User Files**](details/OneDrive_UserFiles.md) | Local folder trees and offline files synchronized via Microsoft OneDrive. | **OneDrive_UserFiles.tkape** | Chad Tilbury | 1.0 |
+| [**OneDrive Sync Metadata**](details/OneDrive_Metadata.md) | System databases (e.g., .dat, .previous.dat) documenting file states and shared OneDrive folders. | **OneDrive_Metadata.tkape** | Chad Tilbury / Brian Maloney | 2.0 |
+| [**Google Drive Metadata**](details/GoogleDrive_Metadata.md) | Sync databases (cloud_graph.db) tracking local folder configurations and Google Drive storage sync timelines. | **GoogleDrive_Metadata.tkape** | Chad Tilbury | 1.1 |
+| [**MegaSync Client**](details/Megasync.md) | MegaSync synchronization metadata, active downloads list, and connected user accounts. | **Megasync.tkape** | Vito Alfano | 1.0 |
 
 ---
 

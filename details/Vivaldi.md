@@ -1,0 +1,135 @@
+# 🎯 **Vivaldi Browser**
+### `File Name: Vivaldi.tkape`
+
+{% hint style="info" %}
+**Category:** Network & Web Browsers  
+**Author:** Sebastian Søgaard / Yogesh Khatri  
+**Version:** 1.1
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Core Chromium-based Vivaldi history database, local state, and configuration tables.
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Vivaldi Browser to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Vivaldi Browser events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Vivaldi Browser storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: Vivaldi Artifacts
+Author: Sebastian Søgaard, Yogesh Khatri
+Version: 1.1
+Id: a5907475-4446-4043-b3f2-5b6b349432b0
+RecreateDirectories: true
+Targets:
+    -
+        Name: Vivaldi Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        Recursive: true
+        FileMask: Cookies*
+    -
+        Name: Vivaldi Network Persistent State
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        Recursive: true
+        FileMask: Network Persistent State
+    -
+        Name: Vivaldi Favicons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Favicons*
+    -
+        Name: Vivaldi History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: History*
+    -
+        Name: Vivaldi Sessions Folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\Sessions\
+        Recursive: false
+    -
+        Name: Vivaldi Login Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Login Data
+    -
+        Name: Vivaldi Network Action Predictor
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Network Action Predictor
+    -
+        Name: Vivaldi Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Preferences
+    -
+        Name: Vivaldi Secure Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Secure Preferences
+    -
+        Name: Vivaldi Top Sites
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Top Sites*
+    -
+        Name: Vivaldi Bookmarks
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Bookmarks*
+    -
+        Name: Vivaldi Visited Links
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Visited Links
+    -
+        Name: Vivaldi Web Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Web Data*
+    -
+        Name: Vivaldi User Tracking
+        Category: Communications
+        Path: C:\Users\%user%\
+        FileMask: .vivaldi_reporting_data*
+    -
+        Name: Vivaldi Calendar
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Calendar*
+    -
+        Name: Vivaldi Contacts
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Contacts*
+    -
+        Name: Vivaldi Notes
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: Notes*
+    -
+        Name: Vivaldi Download Metadata
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Vivaldi\User Data\*\
+        FileMask: DownloadMetadata*
+
+
+# Documentation
+# For vivaldi user tracking, see here: https://vivaldi.com/blog/how-we-count-our-users/
+# Vivaldi is Chromium, so the same artifacts can be found, however Vivaldi has a few unique ones
+# Like "Notes"
+```
+---
+
+[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)

@@ -1,0 +1,219 @@
+# 🎯 **Microsoft Edge**
+### `File Name: EdgeChromium.tkape`
+
+{% hint style="info" %}
+**Category:** Network & Web Browsers  
+**Author:** Chad Tilbury / Andrew Rathbun  
+**Version:** 1.4
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Chromium-based Edge databases, downloads history, extensions state, and local web state.
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Microsoft Edge to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Microsoft Edge events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Microsoft Edge storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: Microsoft Edge Chromium Artifacts
+Author: Chad Tilbury, Andrew Rathbun, Reece394, Yogesh Khatri
+Version: 1.4
+Id: cefd9b17-0144-45cc-83c6-b1b05b2ed7e3
+RecreateDirectories: true
+Targets:
+    -
+        Name: Edge Collections
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Collections
+        FileMask: collectionsSQLite*
+    -
+        Name: Edge Bookmarks
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Bookmarks*
+    -
+        Name: Edge Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Network
+        FileMask: Cookies*
+    -
+        Name: Edge Current Session
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Current Session
+    -
+        Name: Edge Current Tabs
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Current Tabs
+    -
+        Name: Edge Extension Cookies
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Extension Cookies*
+    -
+        Name: Edge Favicons
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Favicons*
+    -
+        Name: Edge History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: History*
+    -
+        Name: Edge Last Session
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Last Session
+    -
+        Name: Edge Last Tabs
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Last Tabs
+    -
+        Name: Edge Sessions Folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Sessions\
+        Recursive: false
+    -
+        Name: Edge Login Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Login Data*
+    -
+        Name: Edge Media History
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Media History*
+    -
+        Name: Edge Network Action Predictor
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Network Action Predictor*
+    -
+        Name: Edge Network Persistent State
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Network Persistent State
+    -
+        Name: Edge Network Persistent State
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Network
+        FileMask: Network Persistent State
+    -
+        Name: Edge Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Preferences
+    -
+        Name: Edge Secure Preferences
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Secure Preferences
+    -
+        Name: Edge Quota Manager
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: QuotaManager*
+    -
+        Name: Edge Quota Manager
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\WebStorage
+        FileMask: QuotaManager*
+    -
+        Name: Edge Reporting and NEL
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Reporting and NEL*
+    -
+        Name: Edge Reporting and NEL
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Network
+        FileMask: Reporting and NEL*
+    -
+        Name: Edge Shortcuts
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Shortcuts*
+    -
+        Name: Edge Top Sites
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Top Sites*
+    -
+        Name: Edge Trust Tokens
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Trust Tokens*
+    -
+        Name: Edge Trust Tokens
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Network
+        FileMask: Trust Tokens*
+    -
+        Name: Edge SyncData Database
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Sync Data
+        FileMask: SyncData.sqlite3
+    -
+        Name: Edge Visited Links
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Visited Links
+    -
+        Name: Edge Web Data
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: Web Data*
+    -
+        Name: Edge IndexedDB
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\IndexedDB\
+        Recursive: true
+        Comment: "Collects IndexedDB (LevelDB) databases used by modern web applications to store data."
+    -
+        Name: Edge Local Storage
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\Local Storage\leveldb\
+        Recursive: true
+        Comment: "Collects Local Storage (LevelDB) databases, another form of persistent client-side storage."
+    -
+        Name: Edge WebAssistDatabase
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\*\
+        FileMask: WebAssistDatabase*
+    -
+        Name: Windows Protect Folder
+        Category: FileSystem
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\Protect\*\
+        Recursive: true
+        Comment: "Required for offline DPAPI decryption"
+    -
+        Name: Edge Snapshots Folder
+        Category: Communications
+        Path: C:\Users\%user%\AppData\Local\Microsoft\Edge\User Data\Snapshots\*\
+        Recursive: true
+        Comment: "Grabs folder that appears to have snapshots of Edge Chromium SQLite DBs organized by version #. In testing, there were 3 previous versions of Edge Chromium separated into different folders"
+
+# Documentation
+# https://www.dataforensics.org/microsoft-edge-browser-forensics/
+# https://www.forensicfocus.com/articles/chromium-based-microsoft-edge-from-a-forensic-point-of-view/
+# https://www.foxtonforensics.com/browser-history-examiner/microsoft-edge-history-location
+# https://www.sans.org/security-resources/posters/windows-forensics-evidence-of/75/download
+# https://cyberforensicator.com/2017/02/07/windows-10-forensics/
+# https://www.forensafe.com/blogs/edgechromium.html
+```
+---
+
+[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)

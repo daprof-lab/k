@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 
-**Module Execution Info:** These modules process Windows event logs and scan file environments using threat intelligence signatures, Sigma rules, and IOC definitions.
+**Module Execution Info:** These modules process data collected under the Threat Hunting, AV & Logs category using specialized analytical tools. Click on any **Short Name** to view a dedicated detail page including use-cases and KAPE module definitions.
 
 {% endhint %}
 
@@ -12,17 +12,17 @@
 
 ## **Available Modules (.mkape)**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **Thor\_Scan.mkape** | Thor, an IOC and YARA scanner written in Golang | Andrew Rathbun | 1.0 |
-| **Loki\_Scan.mkape** | Loki \- Simple IOC and Incident Response Scanner | Georg Lauenstein / Andrew Rathbun | 1.0 |
-| **Hayabusa.mkape** | Hayabusa a timeline generator for Windows event logs | Andrew Rathbun / Georg Lauenstein | 1.1 |
-| **Chainsaw.mkape** | Chainsaw \- Rapidly Search and Hunt through Event Logs | Andrew Rathbun | 2.1 |
-| **EvtxECmd.mkape** | EvtxECmd: process event log files | Eric Zimmerman | 1.0 |
-| **Zircolite\_Scan.mkape** | SIGMA-based detection tool for EVTX | Pedro Sanchez Cordero | 1.0 |
-| **DeepblueCLI.mkape** | SANS DeepBlueCLI against collected Windows Event Logs | Garrett Martin | 1.0 |
-| **log4j-scanner.mkape** | Vulnerability scanner for Log4j2 CVE-2021-44228 | Georg Lauenstein | 1.0 |
-| **CertUtil\_Parser.mkape** | Parse Certutil activity | DReneau / Paul CABON | 2.0 |
+| Short Name | Description | File Name | Author | Version |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Thor IOC Scanner**](details/Thor_Scan.md) | Performs high-performance scanning across folders using advanced YARA signatures and threat indices. | **Thor_Scan.mkape** | Andrew Rathbun | 1.0 |
+| [**Loki IOC Scanner**](details/Loki_Scan.md) | Light and fast Incident Response scanner mapping systems against public YARA and MD5 signatures. | **Loki_Scan.mkape** | Georg Lauenstein / Andrew Rathbun | 1.0 |
+| [**Hayabusa Event Parser**](details/Hayabusa.md) | Fast Event Log (EVTX) timeline generator applying Sigma detection rules to locate lateral movement. | **Hayabusa.mkape** | Andrew Rathbun / Georg Lauenstein | 1.1 |
+| [**Chainsaw Event Scanner**](details/Chainsaw.md) | High-speed Rust-based EVTX engine to search log folders using Sigma rules and custom queries. | **Chainsaw.mkape** | Andrew Rathbun | 2.1 |
+| [**EvtxECmd Event Parser**](details/EvtxECmd.md) | Extracts and parses EVTX logs into highly detailed structured CSV/JSON forensic timelines. | **EvtxECmd.mkape** | Eric Zimmerman | 1.0 |
+| [**Zircolite Sigma Scanner**](details/Zircolite_Scan.md) | Applies standard Sigma rules directly against EVTX directories using SQLite query engines. | **Zircolite_Scan.mkape** | Pedro Sanchez Cordero | 1.0 |
+| [**SANS DeepBlueCLI**](details/DeepblueCLI.md) | Evaluates Windows Security and System logs to identify credential dumping and user creations. | **DeepblueCLI.mkape** | Garrett Martin | 1.0 |
+| [**Log4j Vulnerability Scanner**](details/log4j-scanner.md) | Checks local storage for vulnerable Log4j libraries, helping secure internal systems. | **log4j-scanner.mkape** | Georg Lauenstein | 1.0 |
+| [**CertUtil Activity Parser**](details/CertUtil_Parser.md) | Extracts execution histories, remote download URLs, and command sequences logged by Certutil. | **CertUtil_Parser.mkape** | DReneau / Paul CABON | 2.0 |
 
 ---
 

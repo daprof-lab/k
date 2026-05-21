@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 
-**Module Execution Info:** These modules process data collected from productivity tools, media files, and communication applications to reconstruct user history and interactions.
+**Module Execution Info:** These modules process data collected under the Application Execution & Data category using specialized analytical tools. Click on any **Short Name** to view a dedicated detail page including use-cases and KAPE module definitions.
 
 {% endhint %}
 
@@ -12,13 +12,13 @@
 
 ## **Available Modules (.mkape)**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **TeamsParser.mkape** | Microsoft Teams IndexedDB LevelDB parser | Pedro Sanchez Cordero | 1.0 |
-| **Notepad\_Parser.mkape** | Parse (Windows 11+) Notepad TabState files | DReneau | 1.0 |
-| **WindowsNotepadParser.mkape** | Gathers and parses Notepad Tab State and Window State | ogmini | 1.0 |
-| **VLSeeRecent\_VLCRecentFiles.mkape** | VLC Recent Files Parser | Charlie Rubisoff | 1.0 |
-| **SQLite3\_TeraCopy\_Main.mkape** | Parses the main.db for TeraCopy history | Kevin Pagano | 1.0 |
+| Short Name | Description | File Name | Author | Version |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Teams LevelDB Parser**](details/TeamsParser.md) | Extracts and parses Microsoft Teams chat logs, status records, and database structures from LevelDB. | **TeamsParser.mkape** | Pedro Sanchez Cordero | 1.0 |
+| [**Notepad TabState Parser**](details/Notepad_Parser.md) | Restores active unsaved session data and raw text contents from Windows 11 Notepad tab state files. | **Notepad_Parser.mkape** | DReneau | 1.0 |
+| [**Notepad Master Parser**](details/WindowsNotepadParser.md) | Comprehensive parser targeting Windows 11 Notepad tab states and window geometry histories. | **WindowsNotepadParser.mkape** | ogmini | 1.0 |
+| [**VLC Recent Files Parser**](details/VLSeeRecent_VLCRecentFiles.md) | Extracts the timeline of recently played videos and media paths from VLC history files. | **VLSeeRecent_VLCRecentFiles.mkape** | Charlie Rubisoff | 1.0 |
+| [**TeraCopy Database Parser**](details/SQLite3_TeraCopy_Main.md) | Parses the SQLite database used by TeraCopy to extract historical file transfer records, speeds, and outcomes. | **SQLite3_TeraCopy_Main.mkape** | Kevin Pagano | 1.0 |
 
 ---
 

@@ -1,0 +1,50 @@
+# ⚙️ **TeraCopy Database Parser**
+### `File Name: SQLite3_TeraCopy_Main.mkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** Kevin Pagano  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Parses the SQLite database used by TeraCopy to extract historical file transfer records, speeds, and outcomes.
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run TeraCopy Database Parser to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw TeraCopy Database Parser logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage TeraCopy Database Parser timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: Parses the main.db for TeraCopy history
+Category: FileKnowledge
+Author: Kevin Pagano
+Version: 1.0
+Id: 1ae7d97b-cb8e-4e29-8aec-3514f30e6919
+BinaryUrl: https://sqlite.org/2019/sqlite-tools-win32-x86-3270200.zip
+ExportFormat: csv
+FileMask: main.db
+Processors:
+    -
+        Executable: sqlite3.exe
+        CommandLine: -header -separator "," %sourceFile% "SELECT name AS \"History Filename\", datetime(julianday(started)) AS \"Operation Start (Local Time)\", CASE operation WHEN 1 THEN 'Copy' WHEN 2 THEN 'Move' WHEN 3 THEN 'Test' WHEN 6 THEN 'Delete' END AS \"Operation Type\", SOURCE AS \"Source Location\", target AS \"Target Location\", files AS \"File Count\", SIZE AS \"Size (Bytes)\" FROM list"
+        ExportFormat: csv
+        ExportFile: TeraCopy-main.csv
+
+# Documentation
+# https://www.codesector.com/teracopy
+# Uses sqlite3.exe to parse the database file and export in the proper format
+# Note: preferred to point msource to the TeraCopy folder, as other DB's could be named the same
+```
+---
+
+[⬅️ Back to Application Execution & Data Modules](../applications_modules.md)

@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 
-**Module Execution Info:** These modules capture raw system RAM or execute Volatility plugins against memory dumps to analyze processes, network connections, and hidden injection hooks.
+**Module Execution Info:** These modules process data collected under the Memory & Virtualization category using specialized analytical tools. Click on any **Short Name** to view a dedicated detail page including use-cases and KAPE module definitions.
 
 {% endhint %}
 
@@ -12,16 +12,16 @@
 
 ## **Available Modules (.mkape)**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **DumpIt\_Memory.mkape** | DumpIt Memory Acquisition | Doug Metz | 1.2 |
-| **MagnetForensics\_RAMCapture.mkape** | Magnet RAM Capture Memory Acquisition | Doug Metz | 1.1 |
-| **Belkasoft\_RAMCapture.mkape** | Belkasoft RAM Capture Memory Acquisition | Nick Polosukhin | 1.0 |
-| **Volatility\_pslist.mkape** | Post-Process memory images with Volatility (pslist) | Jos Clephas | 1.0 |
-| **Volatility\_malfind.mkape** | Post-Process memory images with Volatility (malfind) | Jos Clephas | 1.0 |
-| **Volatility\_netscan.mkape** | Post-Process memory images with Volatility (netscan) | Jos Clephas | 1.0 |
-| **Volatility\_cmdline.mkape** | Post-Process memory images with Volatility (cmdline) | Jos Clephas | 1.0 |
-| **Volatility\_hollowfind.mkape** | Post-Process memory images with Volatility (hollowfind) | Jos Clephas | 1.0 |
+| Short Name | Description | File Name | Author | Version |
+| :--- | :--- | :--- | :--- | :--- |
+| [**Comae DumpIt Memory**](details/DumpIt_Memory.md) | Triggers high-speed RAM acquisition on a live system to capture running system states. | **DumpIt_Memory.mkape** | Doug Metz | 1.2 |
+| [**Magnet RAM Capture**](details/MagnetForensics_RAMCapture.md) | Automated, low-overhead RAM dump utility that outputs physical memory dumps to local storage. | **MagnetForensics_RAMCapture.mkape** | Doug Metz | 1.1 |
+| [**Belkasoft RAM Capture**](details/Belkasoft_RAMCapture.md) | Lightweight, kernel-safe tool to obtain physical memory snapshots. | **Belkasoft_RAMCapture.mkape** | Nick Polosukhin | 1.0 |
+| [**Volatility pslist**](details/Volatility_pslist.md) | Post-processes physical memory dumps using Volatility to map the running process tree. | **Volatility_pslist.mkape** | Jos Clephas | 1.0 |
+| [**Volatility malfind**](details/Volatility_malfind.md) | Analyzes memory pages to locate hidden code injections and shellcode blocks. | **Volatility_malfind.mkape** | Jos Clephas | 1.0 |
+| [**Volatility netscan**](details/Volatility_netscan.md) | Reconstructs active, closed, and listening TCP/UDP network connections from physical memory. | **Volatility_netscan.mkape** | Jos Clephas | 1.0 |
+| [**Volatility cmdline**](details/Volatility_cmdline.md) | Extracts command-line arguments and file pathways utilized by active processes in memory. | **Volatility_cmdline.mkape** | Jos Clephas | 1.0 |
+| [**Volatility hollowfind**](details/Volatility_hollowfind.md) | Automatically detects process hollowing anomalies and suspicious thread patterns. | **Volatility_hollowfind.mkape** | Jos Clephas | 1.0 |
 
 ---
 
