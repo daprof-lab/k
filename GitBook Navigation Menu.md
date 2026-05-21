@@ -1,6 +1,6 @@
 # **Table of contents**
 
-* [🏠 Introduction to KAPE](http://docs.google.com/README.md)
+* [🏠 Introduction to KAPE](/README.md)
 
 ## **Forensic Artifacts**
 
