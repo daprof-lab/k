@@ -6,41 +6,37 @@
 
 {% endhint %}
 
-{% tabs %}
+---
 
-{% tab title="🎯 Targets (.tkape)" %}
+## **Explore Category Contents**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **Slack.tkape** | Slack | Andrew Rathbun / Chad Tilbury | 1.1 |
-| **Discord.tkape** | Discord Cache and LevelDB Files | Christian Johansen / Matt Dawson | 2.0 |
-| **MicrosoftTeams.tkape** | Microsoft Teams | Matt Dawson / Andrew Rathbun | 3.0 |
-| **Skype.tkape** | Skype | Eric Zimmerman / Matt Dawson | 4.0 |
-| **Telegram.tkape** | Telegram Desktop | Simone Marinari | 1.0 |
-| **WhatsApp.tkape** | WhatsApp Local Files | Matt Dawson / SolitudePy | 1.1 |
-| **mIRC.tkape** | mIRC | Andrew Rathbun | 1.0 |
-| **Notepad++.tkape** | Notepad++ Backups and recently opened documents | Banaanhangwagen / Matt Dawson | 2.0 |
-| **Notepad.tkape** | Files currently open in Notepad (Windows 11+) | Andrew Rathbun / ogmini | 2.0 |
-| **VisualStudioCode.tkape** | Visual Studio Code artifacts | Sebastian Søgaard / ogmini | 2.0 |
-| **Steam.tkape** | Steam | Nisarg Suthar / SolitudePy | 1.1 |
-| **VLC Media Player.tkape** | VLC Media Player | Matt Dawson | 1.0 |
-| **BitTorrent.tkape** | BitTorrent | Banaanhangwagen | 1.0 |
-| **uTorrent.tkape** | uTorrent | Banaanhangwagen | 1.0 |
-| **SnippingTool.tkape** | SnippingTools screenshots | Paul CABON | 1.0 |
-| **SnipAndSketch.tkape** | Snip & Sketch Cached Images | Kevin Pagano | 2.0 |
+Select a sub-page below to browse the full forensic components in this category.
 
-{% endtab %}
+### 🎯 [Browse Targets (.tkape)](applications_targets.md)
+> Collect raw forensic artifacts from user applications, chat clients, and productivity software.
+> * **16 Targets Available** (e.g., `Slack.tkape`, `Discord.tkape`, `Notepad.tkape`)
+> * [View All Targets &rarr;](applications_targets.md)
 
-{% tab title="⚙️ Modules (.mkape)" %}
+### ⚙️ [Browse Modules (.mkape)](applications_modules.md)
+> Process the collected application artifacts to reconstruct history, chats, and active states.
+> * **5 Modules Available** (e.g., `TeamsParser.mkape`, `WindowsNotepadParser.mkape`, `SQLite3_TeraCopy_Main.mkape`)
+> * [View All Modules &rarr;](applications_modules.md)
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **TeamsParser.mkape** | Microsoft Teams IndexedDB LevelDB parser | Pedro Sanchez Cordero | 1.0 |
-| **Notepad\_Parser.mkape** | Parse (Windows 11+) Notepad TabState files | DReneau | 1.0 |
-| **WindowsNotepadParser.mkape** | Gathers and parses Notepad Tab State and Window State | ogmini | 1.0 |
-| **VLSeeRecent\_VLCRecentFiles.mkape** | VLC Recent Files Parser | Charlie Rubisoff | 1.0 |
-| **SQLite3\_TeraCopy\_Main.mkape** | Parses the main.db for TeraCopy history | Kevin Pagano | 1.0 |
+---
 
-{% endtab %}
+## 📊 **Category Quick Stats**
 
-{% endtabs %}
+| Metric | Details |
+| :--- | :--- |
+| **📁 Focus Area** | End-user applications, chat messengers, IDEs, torrent clients, and recent media history |
+| **🎯 Total Targets** | **16** configuration files |
+| **⚙️ Total Modules** | **5** parser plugins |
+
+---
+
+## 💡 **Key Highlighted Artifacts**
+
+* **Chat Applications (Slack, Teams, Discord, WhatsApp)**: Crucial for determining corporate communications, lateral exfiltration, or social engineering attacks.
+* **Text Editors (Notepad++, Notepad, VS Code)**: Recover unsaved notes, recently accessed source files, and development artifacts.
+* **P2P & Media (uTorrent, VLC)**: Track media consumption and file exfiltration via peer-to-peer clients.
+* **Snipping Tool & Snip and Sketch**: Collect cached screenshots to find high-value visible data cached on disk.

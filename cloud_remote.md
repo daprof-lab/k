@@ -6,39 +6,37 @@
 
 {% endhint %}
 
-{% tabs %}
+---
 
-{% tab title="🎯 Targets (.tkape)" %}
+## **Explore Category Contents**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **AnyDesk.tkape** | AnyDesk | Andrew Rathbun / Scott Hanson | 1.5 |
-| **TeamViewerLogs.tkape** | TeamViewer Logs | Hadar Yudovich / Sam Smoker | 2.0 |
-| **RDPLogs.tkape** | RDP Logs | Drew Ervin | 1.0 |
-| **RDPCache.tkape** | RDP Cache Files | Hadar Yudovich | 1.1 |
-| **ScreenConnect.tkape** | ScreenConnect Data (ConnectWise Control) | Drew Ervin | 1.0 |
-| **Splashtop.tkape** | Splashtop | Andrew Rathbun / Yogesh Khatri | 2.0 |
-| **LogMeIn.tkape** | LogMeIn Data | Drew Ervin | 1.0 |
-| **Ammyy.tkape** | Ammyy Data | Drew Ervin | 1.0 |
-| **Dropbox\_UserFiles.tkape** | Dropbox Cloud Storage Files | Chad Tilbury | 1.0 |
-| **Dropbox\_Metadata.tkape** | Dropbox Cloud Storage Metadata | Chad Tilbury / Andrew Rathbun | 1.5 |
-| **OneDrive\_UserFiles.tkape** | Microsoft OneDrive Storage Files | Chad Tilbury | 1.0 |
-| **OneDrive\_Metadata.tkape** | Microsoft OneDrive Storage Metadata | Chad Tilbury / Brian Maloney | 2.0 |
-| **GoogleDrive\_Metadata.tkape** | Google Drive Metadata | Chad Tilbury | 1.1 |
-| **Megasync.tkape** | MegaSync Data Collection | Vito Alfano | 1.0 |
+Select a sub-page below to browse the full forensic components in this category.
 
-{% endtab %}
+### 🎯 [Browse Targets (.tkape)](cloud_remote_targets.md)
+> Collect raw forensic artifacts from remote desktop logs, management tools, and cloud storage folders.
+> * **14 Targets Available** (e.g., `AnyDesk.tkape`, `RDPLogs.tkape`, `OneDrive_Metadata.tkape`)
+> * [View All Targets &rarr;](cloud_remote_targets.md)
 
-{% tab title="⚙️ Modules (.mkape)" %}
+### ⚙️ [Browse Modules (.mkape)](cloud_remote_modules.md)
+> Process cloud storage sync caches and remote access data files to reconstruct remote sessions or extract credentials.
+> * **5 Modules Available** (e.g., `OneDriveExplorer.mkape`, `LogParser_RDPUsageEvents.mkape`, `WinSCP_Session.mkape`)
+> * [View All Modules &rarr;](cloud_remote_modules.md)
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **OneDriveExplorer.mkape** | Process OneDrive .dat and .previous.dat files | Brian Maloney | 1.3 |
-| **BMC-Tools\_RDPBitmapCacheParser.mkape** | BMC-Tools: RDP Bitmap Cache parser | dingtoffee | 1.1 |
-| **LogParser\_RDPUsageEvents.mkape** | LogParser RDP Usage events | Brian Maloney / Thomas DIOT | 1.1 |
-| **MobaXterm\_Credentials\_key.mkape** | Extract MobaXterm encrypted credentials | Vito Alfano | 1.0 |
-| **WinSCP\_Session.mkape** | Extract a copy of WinSCP encrypted credentials | Vito Alfano | 1.0 |
+---
 
-{% endtab %}
+## 📊 **Category Quick Stats**
 
-{% endtabs %}
+| Metric | Details |
+| :--- | :--- |
+| **📁 Focus Area** | Remote access logs, remote monitoring & management (RMM) history, and cloud synchronization files |
+| **🎯 Total Targets** | **14** configuration files |
+| **⚙️ Total Modules** | **5** parser plugins |
+
+---
+
+## 💡 **Key Highlighted Artifacts**
+
+* **RMM Tools (AnyDesk, TeamViewer, Splashtop, ScreenConnect, LogMeIn)**: Establish unauthorized connections, find incoming IP addresses, chat logs, session timings, and transferred file lists.
+* **Remote Desktop Protocol (RDP Logs & Cache)**: Recover bitmap caches to visually reconstruct what a threat actor saw on screen during lateral movement, and audit terminal services events.
+* **Cloud Storage Sync (OneDrive, Dropbox, Google Drive, MegaSync)**: Vital for auditing data exfiltration. Retrieve sync logs, folder structures, deleted files metadata, and local copy directories.
+* **Credentials (MobaXterm, WinSCP)**: Determine if external administration profiles were parsed and compromised.

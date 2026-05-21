@@ -6,51 +6,37 @@
 
 {% endhint %}
 
-{% tabs %}
+---
 
-{% tab title="🎯 Targets (.tkape)" %}
+## **Explore Category Contents**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **$MFT.tkape** | $MFT | Eric Zimmerman | 1.0 |
-| **$J.tkape** | $J (UsnJrnl) | Eric Zimmerman / Andrew Rathbun | 1.1 |
-| **$LogFile.tkape** | $LogFile | Eric Zimmerman | 1.0 |
-| **$Boot.tkape** | $Boot | Eric Zimmerman | 1.0 |
-| **Prefetch.tkape** | Prefetch files | Eric Zimmerman | 1.0 |
-| **RegistryHivesSystem.tkape** | System level/related Registry hives | Eric Zimmerman / Mark Hallman | 1.0 |
-| **RegistryHivesUser.tkape** | User Related Registry hives | Eric Zimmerman / Mark Hallman | 1.0 |
-| **LNKFilesAndJumpLists.tkape** | LNK Files and jump lists | Eric Zimmerman / Andrew Rathbun / Yogesh Khatri | 1.3 |
-| **ThumbCache.tkape** | Thumbcache DB | Eric Zimmerman | 1.0 |
-| **SRUM.tkape** | System Resource Usage Monitor (SRUM) Data | Mark Hallman | 1.0 |
-| **Amcache.tkape** | Amcache.hve | Eric Zimmerman | 1.0 |
-| **RecentFileCache.tkape** | RecentFileCache | Eric Zimmerman | 1.0 |
-| **WindowsTimeline.tkape** | ActivitiesCache.db collector | Lee Whitfield / Thomas DIOT | 1.1 |
-| **EvidenceOfExecution.tkape** | Evidence of execution related files | Eric Zimmerman | 1.1 |
-| **RecycleBin.tkape** | Recycle Bin DataAndInfo | Mark Hallman / Joshua Hickman | 2.0 |
-| **USBDevicesLogs.tkape** | USB devices log files | Eric Zimmerman / esecrpm | 1.1 |
-| **WER.tkape** | Windows Error Reporting | Troy Larson | 1.1 |
-| **BITS.tkape** | Microsoft BITS persistent files | Jos Clephas | 1.0 |
+Select a sub-page below to browse the full forensic components in this category.
 
-{% endtab %}
+### 🎯 [Browse Targets (.tkape)](core_os_artifacts_targets.md)
+> Collect raw forensic artifacts from the Core OS and File System.
+> * **18 Targets Available** (e.g., `$MFT.tkape`, `Prefetch.tkape`, `RegistryHivesSystem.tkape`)
+> * [View All Targets &rarr;](core_os_artifacts_targets.md)
 
-{% tab title="⚙️ Modules (.mkape)" %}
+### ⚙️ [Browse Modules (.mkape)](core_os_artifacts_modules.md)
+> Process the collected Core OS and File System artifacts using specialized analytical tools.
+> * **13 Modules Available** (e.g., `MFTECmd.mkape`, `PECmd.mkape`, `AmcacheParser.mkape`)
+> * [View All Modules &rarr;](core_os_artifacts_modules.md)
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **MFTECmd.mkape** | MFTECmd: process all files handled by MFTECmd | Eric Zimmerman | 1.0 |
-| **PECmd.mkape** | PECmd: process prefetch files | Eric Zimmerman / Andrew Rathbun | 1.1 |
-| **LECmd.mkape** | LECmd: process .lnk files | Eric Zimmerman | 1.1 |
-| **JLECmd.mkape** | JLECmd: process jumplist files | Eric Zimmerman | 1.1 |
-| **RBCmd.mkape** | RBCmd: process recycle bin artifacts | Eric Zimmerman | 1.0 |
-| **SrumECmd.mkape** | SrumECmd: SRUM Parser | Andrew Rathbun | 1.1 |
-| **AmcacheParser.mkape** | AmcacheParser: extract program execution information | Eric Zimmerman | 1.1 |
-| **AppCompatCacheParser.mkape** | AppCompatCacheParser: extract AppCompatCache (shimcache) information | Eric Zimmerman | 1.1 |
-| **RecentFileCacheParser.mkape** | RecentFileCacheParser: extract file names | Eric Zimmerman | 1.0 |
-| **RegRipper.mkape** | RegRipper: parse all supported hives | ZeArioch / Phill Moore | 1.1 |
-| **Reghunter.mkape** | Execute all Reghunter modules | Georg Lauenstein | 1.0 |
-| **WxTCmd.mkape** | WxTCmd.exe: process Windows Timeline/Activities Cache files | Mike Cary | 1.0 |
-| **PowerShell\_RecycleBinParsing.mkape** | Parses Recycle Bin and exports to CSV/JSON | Max Zabuty | 1.0 |
+---
 
-{% endtab %}
+## 📊 **Category Quick Stats**
 
-{% endtabs %}
+| Metric | Details |
+| :--- | :--- |
+| **📁 Focus Area** | Windows internal file systems, file execution evidence, and persistent OS logs |
+| **🎯 Total Targets** | **18** configuration files |
+| **⚙️ Total Modules** | **13** parser plugins |
+
+---
+
+## 💡 **Key Highlighted Artifacts**
+
+* **$MFT & $J (UsnJrnl)**: Track file creation, deletion, modification, and file system movements.
+* **Registry Hives**: Retrieve critical OS configuration history, user activity, and persistent autostarts.
+* **Prefetch & Amcache**: Essential evidence of process execution to reconstruct a timeline of program runs.
+* **SRUM & Windows Timeline**: Capture historical system resource usage and recent user interactions.

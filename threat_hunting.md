@@ -6,40 +6,37 @@
 
 {% endhint %}
 
-{% tabs %}
+---
 
-{% tab title="🎯 Targets (.tkape)" %}
+## **Explore Category Contents**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **EventLogs.tkape** | Event logs | Eric Zimmerman | 1.0 |
-| **WindowsDefender.tkape** | Windows Defender Data | Drew Ervin | 1.0 |
-| **CrowdStrikeFalcon.tkape** | CrowdStrike Falcon | Cardinsou | 1.0 |
-| **SentinelOne.tkape** | Sentinel One Logs | Kirtan Shah | 1.0 |
-| **TrendMicro.tkape** | Trend Micro Data | Drew Ervin / Paul Cabon | 2.0 |
-| **Bitdefender.tkape** | Bitdefender Antivirus Data | Drew Ervin / Ahmed Elshaer | 1.1 |
-| **Malwarebytes.tkape** | Malwarebytes Data | Drew Ervin / Kirtan Shah | 1.1 |
-| **Avast.tkape** | Avast Antivirus Data | Drew Ervin / Dhiral Panjwani | 1.1 |
-| **ESET.tkape** | ESET Antivirus Data | Drew Ervin / Phill Moore | 1.3 |
-| **Cylance.tkape** | Cylance Antivirus Logs | Ron Rader | 1.0 |
-| **PowerShellTranscripts.tkape** | PowerShell Transcripts | Andrew Rathbun / Chad Tilbury | 1.2 |
+Select a sub-page below to browse the full forensic components in this category.
 
-{% endtab %}
+### 🎯 [Browse Targets (.tkape)](threat_hunting_targets.md)
+> Collect raw forensic artifacts from event logs, PowerShell transcripts, and endpoint antivirus solutions.
+> * **11 Targets Available** (e.g., `EventLogs.tkape`, `WindowsDefender.tkape`, `PowerShellTranscripts.tkape`)
+> * [View All Targets &rarr;](threat_hunting_targets.md)
 
-{% tab title="⚙️ Modules (.mkape)" %}
+### ⚙️ [Browse Modules (.mkape)](threat_hunting_modules.md)
+> Audit systems and analyze event logs using modern IOC scanners, Sigma rule parsers, and event engines.
+> * **9 Modules Available** (e.g., `Chainsaw.mkape`, `Hayabusa.mkape`, `Thor_Scan.mkape`)
+> * [View All Modules &rarr;](threat_hunting_modules.md)
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **Thor\_Scan.mkape** | Thor, an IOC and YARA scanner written in Golang | Andrew Rathbun | 1.0 |
-| **Loki\_Scan.mkape** | Loki \- Simple IOC and Incident Response Scanner | Georg Lauenstein / Andrew Rathbun | 1.0 |
-| **Hayabusa.mkape** | Hayabusa a timeline generator for Windows event logs | Andrew Rathbun / Georg Lauenstein | 1.1 |
-| **Chainsaw.mkape** | Chainsaw \- Rapidly Search and Hunt through Event Logs | Andrew Rathbun | 2.1 |
-| **EvtxECmd.mkape** | EvtxECmd: process event log files | Eric Zimmerman | 1.0 |
-| **Zircolite\_Scan.mkape** | SIGMA-based detection tool for EVTX | Pedro Sanchez Cordero | 1.0 |
-| **DeepblueCLI.mkape** | SANS DeepBlueCLI against collected Windows Event Logs | Garrett Martin | 1.0 |
-| **log4j-scanner.mkape** | Vulnerability scanner for Log4j2 CVE-2021-44228 | Georg Lauenstein | 1.0 |
-| **CertUtil\_Parser.mkape** | Parse Certutil activity | DReneau / Paul CABON | 2.0 |
+---
 
-{% endtab %}
+## 📊 **Category Quick Stats**
 
-{% endtabs %}
+| Metric | Details |
+| :--- | :--- |
+| **📁 Focus Area** | Operating system event records, terminal executions, and endpoint protection telemetry |
+| **🎯 Total Targets** | **11** configuration files |
+| **⚙️ Total Modules** | **9** parser plugins |
+
+---
+
+## 💡 **Key Highlighted Artifacts**
+
+* **Windows Event Logs (EVTX)**: The ultimate audit source. Capture security logins, service installations, scheduled tasks, and network connections.
+* **Antivirus & EDR (CrowdStrike, SentinelOne, Defender, TrendMicro, etc.)**: Check local quarantine history, detection alerts, agent diagnostic logs, and block events.
+* **PowerShell Transcripts**: Review raw command executions, scripting arguments, and malicious payload downloads in terminal sessions.
+* **IOC & Threat Scanners (Hayabusa, Chainsaw, Thor, Loki, Zircolite)**: Search across logs using SIGMA rules and threat feeds to locate compromise indicators in seconds.

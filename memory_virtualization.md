@@ -6,36 +6,37 @@
 
 {% endhint %}
 
-{% tabs %}
+---
 
-{% tab title="🎯 Targets (.tkape)" %}
+## **Explore Category Contents**
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **VirtualBoxMemory.tkape** | VirtualBox \- Memory | Andrew Rathbun | 1.0 |
-| **VirtualBoxLogs.tkape** | Collects VirtualBox log files | Matt Dawson | 1.0 |
-| **VMwareMemory.tkape** | VMware \- Virtual Machine Memory | Andrew Rathbun | 1.0 |
-| **VMwareInventory.tkape** | VMware \- Virtual Machine Inventory | Andrew Rathbun | 1.0 |
-| **MemoryFiles.tkape** | Memory Files | Ahmed Elshaer / Teo Kia Meng | 1.0 |
-| **WSL.tkape** | All Windows Subsystem for Linux targets | Matt Dawson | 1.0 |
-| **Kali.tkape** | Kali on Windows Subsystem for Linux | Matt Dawson | 1.0 |
-| **Ubuntu.tkape** | Ubuntu on Windows Subsystem for Linux | Matt Dawson | 1.0 |
+Select a sub-page below to browse the full forensic components in this category.
 
-{% endtab %}
+### 🎯 [Browse Targets (.tkape)](memory_virtualization_targets.md)
+> Collect raw volatile memory files, VM snapshots, and WSL user files.
+> * **8 Targets Available** (e.g., `VirtualBoxMemory.tkape`, `MemoryFiles.tkape`, `WSL.tkape`)
+> * [View All Targets &rarr;](memory_virtualization_targets.md)
 
-{% tab title="⚙️ Modules (.mkape)" %}
+### ⚙️ [Browse Modules (.mkape)](memory_virtualization_modules.md)
+> Execute RAM acquisition utilities or run Volatility frameworks to extract active OS state information.
+> * **8 Modules Available** (e.g., `DumpIt_Memory.mkape`, `MagnetForensics_RAMCapture.mkape`, `Volatility_netscan.mkape`)
+> * [View All Modules &rarr;](memory_virtualization_modules.md)
 
-| File Name | Description | Author | Version |
-| :---- | :---- | :---- | :---- |
-| **DumpIt\_Memory.mkape** | DumpIt Memory Acquisition | Doug Metz | 1.2 |
-| **MagnetForensics\_RAMCapture.mkape** | Magnet RAM Capture Memory Acquisition | Doug Metz | 1.1 |
-| **Belkasoft\_RAMCapture.mkape** | Belkasoft RAM Capture Memory Acquisition | Nick Polosukhin | 1.0 |
-| **Volatility\_pslist.mkape** | Post-Process memory images with Volatility (pslist) | Jos Clephas | 1.0 |
-| **Volatility\_malfind.mkape** | Post-Process memory images with Volatility (malfind) | Jos Clephas | 1.0 |
-| **Volatility\_netscan.mkape** | Post-Process memory images with Volatility (netscan) | Jos Clephas | 1.0 |
-| **Volatility\_cmdline.mkape** | Post-Process memory images with Volatility (cmdline) | Jos Clephas | 1.0 |
-| **Volatility\_hollowfind.mkape** | Post-Process memory images with Volatility (hollowfind) | Jos Clephas | 1.0 |
+---
 
-{% endtab %}
+## 📊 **Category Quick Stats**
 
-{% endtabs %}
+| Metric | Details |
+| :--- | :--- |
+| **📁 Focus Area** | Physical RAM capture, virtual machine hypervisor configurations, and nested Linux environments |
+| **🎯 Total Targets** | **8** configuration files |
+| **⚙️ Total Modules** | **8** parser plugins |
+
+---
+
+## 💡 **Key Highlighted Artifacts**
+
+* **Volatile Memory (RAM Files)**: Acquire raw physical memory (using DumpIt, Magnet, Belkasoft) to preserve running processes, open network sockets, unencrypted passwords, and active registry connections.
+* **Volatility Post-Processing**: Run plugins like `pslist` (process listing), `netscan` (network status), `cmdline` (arguments used), and `malfind`/`hollowfind` to detect hidden code injections.
+* **Virtual Machine Artifacts (VMware & VirtualBox)**: Recover guest OS memories, capture log files, and inspect system virtualization footprints.
+* **Windows Subsystem for Linux (WSL - Ubuntu & Kali)**: Collect ext4 filesystems and user databases from integrated WSL installations to investigate cross-platform workflows.
