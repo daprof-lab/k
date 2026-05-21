@@ -175,6 +175,6 @@
     * [⚙️ Reghunter Suite](details/Reghunter.md)
     * [⚙️ SOF-ELK Processing Sync](details/SOFELK_Parser.md)
 
-## **Playbooks & Mappings**
+## Playbooks & Mappings
 
 * [🧩 Compound Mappings & Playbooks](compound_mappings.md)
