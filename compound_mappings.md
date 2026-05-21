@@ -63,53 +63,61 @@ While compounds are highly effective, they intentionally **exclude** high-volume
 
 Use these suggested common target and module configurations to tailor your collections for specific investigations.
 
-```carousel
-### 💻 Playbook A: Rapid Host Triage (Generic IR)
-**Scenario**: You need to perform a generic compromise audit on a workstation to establish a rapid timeline of active system events and process execution.
+{% tabs %}
+{% tab title="💻 Playbook A: Rapid Host Triage" %}
+### **Scenario**: Generic Compromise Audit
+Perform a generic compromise audit on a workstation to establish a rapid timeline of active system events and process execution.
 
 * **Primary Targets**: 
-  * `KapeTriage.tkape` (Pulls MFT, standard event logs, registry, execution evidence, web history).
+  * [KapeTriage](details/KapeTriage.md) (Pulls MFT, standard event logs, registry, execution evidence, web history).
 * **Primary Modules**: 
-  * `!EZParser.mkape` (Parses standard artifacts to clean timelines).
+  * [!EZParser](details/!EZParser.md) (Parses standard artifacts to clean timelines).
 * **Critical Manual Additions**:
-  * `Antivirus.tkape` / `TrendMicro.tkape` / `Bitdefender.tkape` (Tailor to the specific endpoint AV deployed).
-  * `PowerShellTranscripts.tkape` (Crucial if attackers are living off the land via command-line PowerShell scripts).
-<!-- slide -->
-### ☣️ Playbook B: Ransomware & Malware threat Hunting
-**Scenario**: You suspect an active ransomware deployment, rootkit persistence, or modular malware staging on a system.
+  * [Antivirus Suite](details/Antivirus.md) (Tailor to the specific endpoint AV deployed).
+  * [PowerShell Transcripts](details/PowerShellTranscripts.md) (Crucial if attackers are living off the land via command-line PowerShell scripts).
+{% endtab %}
+
+{% tab title="☣️ Playbook B: Ransomware Hunting" %}
+### **Scenario**: Ransomware Staging & Malware Persistence
+You suspect an active ransomware deployment, rootkit persistence, or modular malware staging on a system.
 
 * **Primary Targets**: 
-  * `KapeTriage.tkape` (Pulls core OS elements).
+  * [KapeTriage](details/KapeTriage.md) (Pulls core OS elements).
 * **Primary Modules**:
-  * `!EZParser.mkape` (Timeline generation).
-  * `Chainsaw.mkape` or `Hayabusa.mkape` (Runs lightning-fast Sigma rule matches against raw event logs to locate lateral movement or process injection).
+  * [!EZParser](details/!EZParser.md) (Timeline generation).
+  * [Chainsaw](details/Chainsaw.md) or [Hayabusa](details/Hayabusa.md) (Runs lightning-fast Sigma rule matches against raw event logs to locate lateral movement or process injection).
 * **Critical Manual Additions**:
-  * **Memory Acquisition**: Run `DumpIt_Memory.mkape` immediately on the live system before target collection to preserve active connections, inject process maps, and volatile memory spaces.
-  * **Registry Autostarts**: Include `RegRipper.mkape` and `Reghunter.mkape` to extract deep registry keys holding persistence mechanisms.
-<!-- slide -->
-### 🕵️ Playbook C: Insider Threat & Data Exfiltration
-**Scenario**: An employee is suspected of uploading proprietary corporate IP to personal cloud storage, downloading databases, or leaking secrets via chat channels prior to departure.
+  * **Memory Acquisition**: Run [DumpIt Memory](details/DumpIt_Memory.md) immediately on the live system before target collection to preserve active connections, process maps, and volatile memory spaces.
+  * **Registry Autostarts**: Include [RegRipper](details/RegRipper.md) and [Reghunter Core Suite](details/Reghunter.md) to extract deep registry keys holding persistence mechanisms.
+{% endtab %}
+
+{% tab title="🕵️ Playbook C: Insider Threat" %}
+### **Scenario**: Data Exfiltration & IP Theft
+An employee is suspected of uploading proprietary corporate IP to personal cloud storage, downloading databases, or leaking secrets via chat channels prior to departure.
 
 * **Primary Targets**:
-  * `KapeTriage.tkape`
-  * `Slack.tkape` & `MicrosoftTeams.tkape` (Capture direct chat database histories).
-  * `OneDrive_UserFiles.tkape` / `Dropbox_UserFiles.tkape` (Pull raw synced directories).
+  * [KapeTriage](details/KapeTriage.md)
+  * [Slack Desktop](details/Slack.md) & [Microsoft Teams](details/MicrosoftTeams.md) (Capture direct chat database histories).
+  * [OneDrive User Files](details/OneDrive_UserFiles.md) / [Dropbox User Files](details/Dropbox_UserFiles.md) (Pull raw synced directories).
 * **Primary Modules**:
-  * `OneDriveExplorer.mkape` (Decrypt and parse OneDrive metadata logs to map synced directories, deletion timestamps, and SHA-1 hashes).
-  * `SrumECmd.mkape` (Identify byte-level data transmissions per application executable over a 30-day window to map exfiltration paths).
-  * `BrowserParser.mkape` (Extract complete download records and web access timelines).
-<!-- slide -->
-### 💾 Playbook D: Low-Level File Deletion & Anti-Forensics
-**Scenario**: The suspect is known to have run cleaning utilities (like CCleaner or BleachBit) or manually deleted evidence folders, and you need to perform deep MFT recovery.
+  * [OneDrive Explorer](details/OneDriveExplorer.md) (Decrypt and parse OneDrive metadata logs to map synced directories, deletion timestamps, and SHA-1 hashes).
+  * [SrumECmd](details/SrumECmd.md) (Identify byte-level data transmissions per application executable over a 30-day window to map exfiltration paths).
+  * [Universal Browser Parser](details/BrowserParser.md) (Extract complete download records and web access timelines).
+{% endtab %}
+
+{% tab title="💾 Playbook D: Low-Level Deletion" %}
+### **Scenario**: Anti-Forensics & File Deletion Recovery
+The suspect is known to have run cleaning utilities (like CCleaner or BleachBit) or manually deleted evidence folders, and you need to perform deep MFT recovery.
 
 * **Primary Targets**:
-  * `FileSystem.tkape` (Focuses on MFT, USN Journal, and Transaction Logs).
-  * `USBDevicesLogs.tkape` (Audit setup logs and hardware history).
+  * [FileSystem](details/FileSystem.md) (Focuses on MFT, USN Journal, and Transaction Logs).
+  * [USB Device Logs](details/USBDevicesLogs.md) (Audit setup logs and hardware history).
 * **Primary Modules**:
-  * `MFTECmd.mkape` (Deep-dive parsing of `$MFT` record logs and USN change journaling to trace deleted file metadata).
-  * `LECmd.mkape` & `JLECmd.mkape` (Verify if shortcut files or jump lists point to directories and filenames that no longer exist on disk).
-  * `RBCmd.mkape` (Reconstruct $I metadata logs mapping GUI Recycle Bin deletions).
-```
+  * [MFTECmd Parser](details/MFTECmd.md) (Deep-dive parsing of `$MFT` record logs and USN change journaling to trace deleted file metadata).
+  * [LECmd Link File Parser](details/LECmd.md) & [JLECmd Jump List Parser](details/JLECmd.md) (Verify if shortcut files or jump lists point to directories and filenames that no longer exist on disk).
+  * [RBCmd Recycle Bin Parser](details/RBCmd.md) (Reconstruct `$I` metadata logs mapping GUI Recycle Bin deletions).
+{% endtab %}
+{% endtabs %}
 
 ---
 
