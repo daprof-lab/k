@@ -63,61 +63,59 @@ While compounds are highly effective, they intentionally **exclude** high-volume
 
 Use these suggested common target and module configurations to tailor your collections for specific investigations.
 
-{% tabs %}
-{% tab title="💻 Playbook A: Rapid Host Triage" %}
-### **Scenario**: Generic Compromise Audit
-Perform a generic compromise audit on a workstation to establish a rapid timeline of active system events and process execution.
+### 💻 **Playbook A: Rapid Host Triage**
 
-* **Primary Targets**: 
-  * [KapeTriage](details/KapeTriage.md) (Pulls MFT, standard event logs, registry, execution evidence, web history).
-* **Primary Modules**: 
-  * [!EZParser](details/!EZParser.md) (Parses standard artifacts to clean timelines).
-* **Critical Manual Additions**:
-  * [Antivirus Suite](details/Antivirus.md) (Tailor to the specific endpoint AV deployed).
-  * [PowerShell Transcripts](details/PowerShellTranscripts.md) (Crucial if attackers are living off the land via command-line PowerShell scripts).
-{% endtab %}
+**Scenario**: Generic Compromise Audit — Perform a generic compromise audit on a workstation to establish a rapid timeline of active system events and process execution.
 
-{% tab title="☣️ Playbook B: Ransomware Hunting" %}
-### **Scenario**: Ransomware Staging & Malware Persistence
-You suspect an active ransomware deployment, rootkit persistence, or modular malware staging on a system.
+| Role / Component | Target / Module Link | Forensic Rationale & Operational Guidance |
+| :--- | :--- | :--- |
+| **Primary Target** | [KapeTriage](details/KapeTriage.md) | Standard workstation triage. Pulls `$MFT`, event logs, registry hives, evidence of execution, and web history. |
+| **Primary Module** | [!EZParser](details/!EZParser.md) | Parses standard triage artifacts into highly structured CSV files for rapid timelines (Amcache, Prefetch, JumpLists, etc.). |
+| **Manual Target Addition** | [Antivirus & EDR Suites](threat_hunting_targets.md) | Manually verify and run the specific target mapping to the antivirus/EDR solution active on the host (e.g., [Windows Defender](details/WindowsDefender.md), [CrowdStrike Falcon](details/CrowdStrikeFalcon.md), or [ESET](details/ESET.md)). |
+| **Manual Target Addition** | [PowerShell Transcripts](details/PowerShellTranscripts.md) | Critical if threat actors are operating "living off the land" via PowerShell commands or scripts. |
 
-* **Primary Targets**: 
-  * [KapeTriage](details/KapeTriage.md) (Pulls core OS elements).
-* **Primary Modules**:
-  * [!EZParser](details/!EZParser.md) (Timeline generation).
-  * [Chainsaw](details/Chainsaw.md) or [Hayabusa](details/Hayabusa.md) (Runs lightning-fast Sigma rule matches against raw event logs to locate lateral movement or process injection).
-* **Critical Manual Additions**:
-  * **Memory Acquisition**: Run [DumpIt Memory](details/DumpIt_Memory.md) immediately on the live system before target collection to preserve active connections, process maps, and volatile memory spaces.
-  * **Registry Autostarts**: Include [RegRipper](details/RegRipper.md) and [Reghunter Core Suite](details/Reghunter.md) to extract deep registry keys holding persistence mechanisms.
-{% endtab %}
+---
 
-{% tab title="🕵️ Playbook C: Insider Threat" %}
-### **Scenario**: Data Exfiltration & IP Theft
-An employee is suspected of uploading proprietary corporate IP to personal cloud storage, downloading databases, or leaking secrets via chat channels prior to departure.
+### ☣️ **Playbook B: Ransomware Hunting**
 
-* **Primary Targets**:
-  * [KapeTriage](details/KapeTriage.md)
-  * [Slack Desktop](details/Slack.md) & [Microsoft Teams](details/MicrosoftTeams.md) (Capture direct chat database histories).
-  * [OneDrive User Files](details/OneDrive_UserFiles.md) / [Dropbox User Files](details/Dropbox_UserFiles.md) (Pull raw synced directories).
-* **Primary Modules**:
-  * [OneDrive Explorer](details/OneDriveExplorer.md) (Decrypt and parse OneDrive metadata logs to map synced directories, deletion timestamps, and SHA-1 hashes).
-  * [SrumECmd](details/SrumECmd.md) (Identify byte-level data transmissions per application executable over a 30-day window to map exfiltration paths).
-  * [Universal Browser Parser](details/BrowserParser.md) (Extract complete download records and web access timelines).
-{% endtab %}
+**Scenario**: Ransomware Staging & Malware Persistence — You suspect an active ransomware deployment, rootkit persistence, or modular malware staging on a system.
 
-{% tab title="💾 Playbook D: Low-Level Deletion" %}
-### **Scenario**: Anti-Forensics & File Deletion Recovery
-The suspect is known to have run cleaning utilities (like CCleaner or BleachBit) or manually deleted evidence folders, and you need to perform deep MFT recovery.
+| Role / Component | Target / Module Link | Forensic Rationale & Operational Guidance |
+| :--- | :--- | :--- |
+| **Primary Target** | [KapeTriage](details/KapeTriage.md) | Obtains the core operating system structures, registry hives, and event logs. |
+| **Primary Module** | [!EZParser](details/!EZParser.md) | Generates the primary analytical spreadsheets mapping process execution times. |
+| **Specialized Module** | [Chainsaw](details/Chainsaw.md) or [Hayabusa](details/Hayabusa.md) | Runs lightning-fast Sigma rule matches against raw Windows Event Logs to locate lateral movement, process execution, and privilege escalation indicators. |
+| **Manual Module Addition** | [DumpIt Memory](details/DumpIt_Memory.md) | **Execute first on the live system** to dump physical RAM before KAPE accesses disk, preserving active network connections, process spaces, and decrypter keys. |
+| **Manual Module Addition** | [RegRipper](details/RegRipper.md) & [Reghunter Core Suite](details/Reghunter.md) | Deeply parses system and user registry hives, running specialized checks to locate autoruns, malicious service keys, and shellcode loaders. |
 
-* **Primary Targets**:
-  * [FileSystem](details/FileSystem.md) (Focuses on MFT, USN Journal, and Transaction Logs).
-  * [USB Device Logs](details/USBDevicesLogs.md) (Audit setup logs and hardware history).
-* **Primary Modules**:
-  * [MFTECmd Parser](details/MFTECmd.md) (Deep-dive parsing of `$MFT` record logs and USN change journaling to trace deleted file metadata).
-  * [LECmd Link File Parser](details/LECmd.md) & [JLECmd Jump List Parser](details/JLECmd.md) (Verify if shortcut files or jump lists point to directories and filenames that no longer exist on disk).
-  * [RBCmd Recycle Bin Parser](details/RBCmd.md) (Reconstruct `$I` metadata logs mapping GUI Recycle Bin deletions).
-{% endtab %}
-{% endtabs %}
+---
+
+### 🕵️ **Playbook C: Insider Threat**
+
+**Scenario**: Data Exfiltration & IP Theft — An employee is suspected of uploading proprietary corporate IP to personal cloud storage, downloading databases, or leaking secrets via chat channels prior to departure.
+
+| Role / Component | Target / Module Link | Forensic Rationale & Operational Guidance |
+| :--- | :--- | :--- |
+| **Primary Target** | [KapeTriage](details/KapeTriage.md) | Provides the base operating system activity, recent file access, and USB connection history. |
+| **Primary Target** | [Slack Desktop](details/Slack.md) & [Microsoft Teams](details/MicrosoftTeams.md) | Captures direct chat databases (`LevelDB`/`SQLite`) to extract chats, channels, direct messages, and shared attachment listings. |
+| **Manual Target Addition** | [OneDrive User Files](details/OneDrive_UserFiles.md) / [Dropbox User Files](details/Dropbox_UserFiles.md) | Collects actual synced local folders rather than just metadata catalogs, preserving copies of files synced to personal clouds. |
+| **Specialized Module** | [OneDrive Explorer](details/OneDriveExplorer.md) | Decrypts and parses OneDrive sync log databases to reconstruct folder listings, synchronization histories, deletion timestamps, and SHA-1 hashes. |
+| **Specialized Module** | [SrumECmd](details/SrumECmd.md) | Extracts the System Resource Usage Monitor database to audit application network traffic usage over the past 30 days to trace bulk uploads and exfiltration. |
+| **Specialized Module** | [Universal Browser Parser](details/BrowserParser.md) | Consolidates Chrome, Edge, and Firefox history logs to trace web storage interactions, external emails, and download files. |
+
+---
+
+### 💾 **Playbook D: Low-Level Deletion**
+
+**Scenario**: Anti-Forensics & File Deletion Recovery — The suspect is known to have run cleaning utilities (like CCleaner or BleachBit) or manually deleted evidence folders, and you need to perform deep MFT recovery.
+
+| Role / Component | Target / Module Link | Forensic Rationale & Operational Guidance |
+| :--- | :--- | :--- |
+| **Primary Target** | [FileSystem](details/FileSystem.md) | Captures NTFS low-level system files (`$MFT`, `$LogFile`, `$Boot`, `$UsnJrnl`) crucial for auditing file system interactions and deleted directories. |
+| **Primary Target** | [USB Device Logs](details/USBDevicesLogs.md) | Gathers system setup logs, hardware registration, and device history. |
+| **Primary Module** | [MFTECmd Parser](details/MFTECmd.md) | Performs a deep-dive parser of the `$MFT` record logs and USN change journaling to trace deleted file metadata and directory path structures. |
+| **Specialized Module** | [LECmd Link File Parser](details/LECmd.md) & [JLECmd Jump List Parser](details/JLECmd.md) | Validates short-cuts (`.lnk` files) and jump lists to see if they point to files or target directories that have since been deleted from the drive. |
+| **Specialized Module** | [RBCmd Recycle Bin Parser](details/RBCmd.md) | Reconstructs Recycle Bin transactions, correlating user SIDs with original deleted names, paths, and deletion times. |
 
 ---
 
