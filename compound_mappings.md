@@ -8,32 +8,14 @@ This guide serves as a definitive roadmap mapping out exactly what is included i
 
 ---
 
-## 🗺️ **KAPE Compound Target Mappings**
+## 🗺️ **KAPE Compound Mappings Directories**
 
-Compound targets collect a predefined suite of individual forensic artifacts. Below is a mapping of the most common compound targets and the individual targets they automatically execute.
+KAPE uses compound targets and modules to automate complex collections and parsing steps in a single instruction. Due to the addition of all compounds present on the system, these mappings are now split into dedicated, alphabetically sorted subpages for maximum readability and forensic value:
 
-| Compound Target (`.tkape`) | Sub-Targets Included | Best Used For |
-| :--- | :--- | :--- |
-| **`KapeTriage.tkape`** | `Antivirus.tkape`, `CloudStorage_Metadata.tkape`, `EventLogs.tkape`, `EvidenceOfExecution.tkape`, `FileSystem.tkape`, `LNKFilesAndJumpLists.tkape`, `Notepad.tkape`, `PowerShellConsole.tkape`, `RecycleBin_InfoFiles.tkape`, `RegistryHives.tkape`, `RemoteAdmin.tkape`, `ScheduledTasks.tkape`, `SRUM.tkape`, `SUM.tkape`, `WER.tkape`, `WBEM.tkape`, `WebBrowsers.tkape`, `WindowsTimeline.tkape` | **Full Host Triage**. The default standard for standard Windows workstation triage collections. |
-| **`!SANS_Triage.tkape`** | `Antivirus.tkape`, `EventLogs.tkape`, `EvidenceOfExecution.tkape`, `FileSystem.tkape`, `LNKFilesAndJumpLists.tkape`, `PowerShellConsole.tkape`, `RecycleBin.tkape`, `RegistryHives.tkape`, `ScheduledTasks.tkape`, `WindowsTimeline.tkape` | **Rapid Host Triage**. Standard collection mapping directly to the SANS DFIR triage recommendation. |
-| **`!BasicCollection.tkape`** | `EventLogs.tkape`, `RegistryHives.tkape`, `EvidenceOfExecution.tkape` (Shimcache/Amcache/Prefetch) | **Ultra-Fast Recon**. Pulls only the most critical execution and log assets to assess compromise state. |
-| **`FileSystem.tkape`** | `$MFT.tkape`, `$LogFile.tkape`, `$Boot.tkape`, `$J.tkape` | **File System Analysis**. Targets low-level NTFS file system structures for deep deletion and timestamp audits. |
-| **`RegistryHives.tkape`** | `RegistryHivesSystem.tkape`, `RegistryHivesUser.tkape` | **Registry Triage**. Gathers all system hives (`SYSTEM`, `SOFTWARE`, `SAM`, `SECURITY`) and user hives (`NTUSER.DAT`, `UsrClass.dat`). |
-| **`WebBrowsers.tkape`** | `Chrome.tkape`, `EdgeChromium.tkape`, `Firefox.tkape`, `BraveBrowser.tkape`, `Opera.tkape`, `Vivaldi.tkape` | **User Web Activity**. Focuses exclusively on browser histories, session states, downloads, and bookmarks. |
-
----
-
-## ⚙️ **KAPE Compound Module Mappings**
-
-Compound modules execute a series of external command-line tools in sequence to parse raw forensic files into structured, timeline-friendly spreadsheets.
-
-| Compound Module (`.mkape`) | Sub-Modules (Parsers) Executed | Output Format |
-| :--- | :--- | :--- |
-| **`!EZParser.mkape`** | `AmcacheParser.mkape`, `AppCompatCacheParser.mkape`, `EvtxECmd.mkape`, `JLECmd.mkape`, `LECmd.mkape`, `MFTECmd.mkape`, `PECmd.mkape`, `RBCmd.mkape`, `RecentFileCacheParser.mkape`, `RECmd_DFIRBatch.mkape`, `SBECmd.mkape`, `SQLECmd.mkape`, `SrumECmd.mkape`, `SumECmd.mkape`, `WxTCmd.mkape` | **CSV Tables** (Structured timelines for Eric Zimmerman's entire suite of tools) |
-| **`KAPE_Automation.mkape`** | Executes comprehensive parsers against the entire output of a triage folder, automatically running all standard analytical plugins. | **CSV & JSON Tables** |
-| **`LogParser.mkape`** | `iisGeoLocate.mkape`, `LogParser_ApacheAccessLogs.mkape`, `LogParser_RDPUsageEvents.mkape` | **CSV Tables** |
-| **`bstrings.mkape`** | `bstrings_URLs.mkape`, `bstrings_IPv4.mkape`, `bstrings_Emails.mkape` | **Text & CSV Logs** (Regex patterns extracted from bulk unallocated data) |
-| **`Reghunter.mkape`** | `RegRipper.mkape` (User, System, Software, and SAM plugins executed sequentially) | **Text Reports** |
+* 🎯 **[Detailed Compound Target Mappings](compound_target_mappings.md)**
+  > Complete parent-to-child mappings for all **34 compound targets** on the system. Learn exactly which individual sub-targets are collected under complex triages, filesystems, and databases.
+* ⚙️ **[Detailed Compound Module Mappings](compound_module_mappings.md)**
+  > Complete execution lists for all **23 compound modules** on the system. Track the precise command-line tools and analytical parsers executed in sequence.
 
 ---
 

@@ -880,3 +880,5 @@
 ## Playbooks & Mappings
 
 * [🧩 Compound Mappings & Playbooks](compound_mappings.md)
+    * [🎯 Compound Target Mappings](compound_target_mappings.md)
+    * [⚙️ Compound Module Mappings](compound_module_mappings.md)
