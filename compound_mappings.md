@@ -52,7 +52,8 @@ Use these suggested common target and module configurations to tailor your colle
 #### 1. Target Selections (`--target`)
 | Role / Component | Target Link | Forensic Rationale & Operational Guidance |
 | :--- | :--- | :--- |
-| **Primary Base** | [KapeTriage](details/KapeTriage.md) | Standard workstation triage. Pulls `$MFT`, event logs, registry hives, evidence of execution, and web history. |
+| **Primary Base (Recommended)** | [!SANS_Triage](details/!SANS_Triage.md) | **Highly Recommended**. Considerably more comprehensive than standard KapeTriage. Automatically collects 23 sub-targets including BITS, Group Policy, FTP clients, messaging client logs, network scanners, and search indexes in addition to core artifacts. |
+| **Primary Base (Standard)** | [KapeTriage](details/KapeTriage.md) | Standard workstation triage (18 sub-targets). Pulls `$MFT`, event logs, registry hives, evidence of execution, and web browser history. |
 | **Manual Addition** | [Antivirus & EDR Suites](threat_hunting_targets.md) | Gathers active local antivirus engine threat history logs (e.g. [Windows Defender](details/WindowsDefender.md), [CrowdStrike Falcon](details/CrowdStrikeFalcon.md), or [ESET](details/ESET.md)) to identify previously blocked threats. |
 | **Manual Addition** | [PowerShell Transcripts](details/PowerShellTranscripts.md) | Collects PowerShell transcript execution files to inspect custom command strings run by the attacker. |
 
@@ -60,6 +61,7 @@ Use these suggested common target and module configurations to tailor your colle
 | Role / Component | Module Link | Forensic Rationale & Operational Guidance |
 | :--- | :--- | :--- |
 | **Primary Base** | [!EZParser](details/!EZParser.md) | Automatically processes Eric Zimmerman's entire suite of parsing tools (Amcache, Prefetch, JumpLists, Registry) to output structured CSV timelines. |
+| **Manual Addition (with SANS Triage)** | [BitsParser](details/BitsParser.md) | Parses Windows Background Intelligent Transfer Service (BITS) database files (`qmgr.db`) collected by `!SANS_Triage` to identify active and carved malicious download jobs. |
 | **Manual Addition** | [WinDefendDetectionHist](details/WinDefendDetectionHist.md) | Parses raw Windows Defender detection history folders into readable CSV/text structures to map threat parameters. |
 | **Manual Addition** | [PowerShell_ConvertPSHistoryTo-CSV](details/PowerShell_ConvertPSHistoryTo-CSV.md) | Automatically parses PowerShell console history commands to a structured table for rapid review. |
 
@@ -72,7 +74,8 @@ Use these suggested common target and module configurations to tailor your colle
 #### 1. Target Selections (`--target`)
 | Role / Component | Target Link | Forensic Rationale & Operational Guidance |
 | :--- | :--- | :--- |
-| **Primary Base** | [KapeTriage](details/KapeTriage.md) | Obtains the core operating system structures, registry hives, execution histories, and event logs. |
+| **Primary Base (Recommended)** | [!SANS_Triage](details/!SANS_Triage.md) | **Highly Recommended**. More comprehensive triage basis. Pulls BITS jobs, group policy files, event logs, registry hives, and execution history. |
+| **Primary Base (Standard)** | [KapeTriage](details/KapeTriage.md) | Standard triage basis (18 sub-targets). Obtains the core operating system structures, registry hives, execution histories, and event logs. |
 | **Manual Addition** | [FileSystem](details/FileSystem.md) | Collects low-level NTFS system structures (`$MFT`, `$LogFile`, `$Boot`, `$UsnJrnl`) to trace rapid file renaming, modification, and encryption. |
 
 #### 2. Module Selections (`--module`)
@@ -81,6 +84,7 @@ Use these suggested common target and module configurations to tailor your colle
 | **Primary Base** | [!EZParser](details/!EZParser.md) | Generates the primary analytical spreadsheets mapping process execution times. |
 | **Specialized Scanner** | [Chainsaw](details/Chainsaw.md) or [Hayabusa](details/Hayabusa.md) | Runs lightning-fast Sigma rule matches against raw Windows Event Logs to locate lateral movement, process execution, and privilege escalation indicators. |
 | **Live Acquisition** | [DumpIt Memory](details/DumpIt_Memory.md) | **Execute first on the live system** to dump physical RAM before KAPE accesses disk, preserving active network connections, volatile process spaces, and decryption keys. |
+| **Manual Addition** | [BitsParser](details/BitsParser.md) | Parses BITS databases (`qmgr.db`) to identify stealthy ransomware or malware downloader persistence mechanisms. |
 | **Manual Addition** | [RegRipper](details/RegRipper.md) & [Reghunter Core Suite](details/Reghunter.md) | Deeply parses system and user registry hives, running specialized checks to locate autoruns, malicious service keys, and shellcode loaders. |
 | **Manual Addition** | [MFTECmd Parser](details/MFTECmd.md) | Processes raw `$MFT` records and `$UsnJrnl` logs to timeline bulk folder modifications and file creations typical of ransomware scripts. |
 
@@ -93,7 +97,8 @@ Use these suggested common target and module configurations to tailor your colle
 #### 1. Target Selections (`--target`)
 | Role / Component | Target Link | Forensic Rationale & Operational Guidance |
 | :--- | :--- | :--- |
-| **Primary Base** | [KapeTriage](details/KapeTriage.md) | Provides the base operating system activity, recent file access, and USB connection history. |
+| **Primary Base (Recommended)** | [!SANS_Triage](details/!SANS_Triage.md) | **Highly Recommended**. Considerably more robust for exfiltration audits as it automatically includes FTP client histories, messaging client databases, and thumbnail caches. |
+| **Primary Base (Standard)** | [KapeTriage](details/KapeTriage.md) | Standard triage basis (18 sub-targets). Provides the base operating system activity, recent file access, and USB connection history. |
 | **Manual Addition** | [Slack Desktop](details/Slack.md) & [Microsoft Teams](details/MicrosoftTeams.md) | Captures direct chat databases (`LevelDB`/`SQLite`) to extract chat logs, channels, direct messages, and shared attachment listings. |
 | **Manual Addition** | [OneDrive User Files](details/OneDrive_UserFiles.md) / [Dropbox User Files](details/Dropbox_UserFiles.md) | Collects actual synced local folders rather than just metadata catalogs, preserving copies of files synced to personal clouds. |
 | **Manual Addition** | [Global Browser Caches](details/BrowserCache.md) | Collects cached web assets, exfiltrated files, and session logs to reconstruct upload workflows. |
@@ -102,6 +107,7 @@ Use these suggested common target and module configurations to tailor your colle
 | Role / Component | Module Link | Forensic Rationale & Operational Guidance |
 | :--- | :--- | :--- |
 | **Primary Base** | [!EZParser](details/!EZParser.md) | Parses user-centric shell shortcuts, LNK files, and Registry hives to map file access habits. |
+| **Specialized Parser** | [BitsParser](details/BitsParser.md) | Parses BITS databases (`qmgr.db`) to identify stealthy file transfers or malicious utility downloads executed in the background. |
 | **Specialized Parser** | [OneDrive Explorer](details/OneDriveExplorer.md) | Decrypts and parses OneDrive sync log databases to reconstruct folder listings, synchronization histories, deletion timestamps, and SHA-1 hashes. |
 | **Specialized Parser** | [SrumECmd SRUM Parser](details/SrumECmd.md) | Extracts the System Resource Usage Monitor database to audit application network traffic usage over the past 30 days to trace bulk uploads and exfiltration. |
 | **Specialized Parser** | [Universal Browser Parser](details/BrowserParser.md) | Consolidates Chrome, Edge, and Firefox history logs to trace web storage interactions, external emails, and download files. |
