@@ -877,6 +877,6 @@
     * [⚙️ Sync Sqlecmd](details/Sync_SQLECmd.md)
     * [⚙️ System Information](details/SystemInformation.md)
 
-## **Playbooks & Mappings**
+## Playbooks & Mappings
 
 * [🧩 Compound Mappings & Playbooks](compound_mappings.md)
