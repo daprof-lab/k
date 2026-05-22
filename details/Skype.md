@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Eric Zimmerman / Matt Dawson  
+**Author:** Eric Zimmerman, Matt Dawson  
 **Version:** 4.0
 {% endhint %}
 

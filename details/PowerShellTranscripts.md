@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Andrew Rathbun / Chad Tilbury  
+**Author:** Andrew Rathbun and Chad Tilbury  
 **Version:** 1.2
 {% endhint %}
 

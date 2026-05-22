@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Drew Ervin / Dhiral Panjwani  
+**Author:** Drew Ervin and Dhiral Panjwani  
 **Version:** 1.1
 {% endhint %}
 

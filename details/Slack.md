@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Andrew Rathbun / Chad Tilbury  
+**Author:** Andrew Rathbun and Chad Tilbury  
 **Version:** 1.1
 {% endhint %}
 

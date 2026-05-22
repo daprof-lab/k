@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Pedro Sanchez Cordero  
+**Author:** Pedro Sanchez Cordero (conexioninversa)  
 **Version:** 1.0
 {% endhint %}
 

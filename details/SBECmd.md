@@ -1,0 +1,54 @@
+# ⚙️ **Sbecmd**
+### `File Name: SBECmd.mkape`
+
+{% hint style="info" %}
+**Category:** Core OS & File System  
+**Author:** Barrie Hill  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+SBECmd: process shellbags
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Sbecmd to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Sbecmd logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Sbecmd timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: 'SBECmd: process shellbags'
+Category: FileFolderAccess
+Author: Barrie Hill
+Version: 1.0
+Id: fe12cf94-dad8-4f1a-b09d-3e64614fe2de
+BinaryUrl: https://download.ericzimmermanstools.com/ShellBagsExplorer.zip
+ExportFormat: csv
+Processors:
+    -
+        Executable: SBECmd.exe
+        CommandLine: -d %sourceDirectory% --csv %destinationDirectory%
+        ExportFormat: csv
+
+# Documentation
+# https://www.sans.org/reading-room/whitepapers/forensics/windows-shellbag-forensics-in-depth-34545
+# https://binaryforay.blogspot.com/2017/09/shellbags-explorer-0950-released.html
+# https://www.youtube.com/watch?v=YvVemshnpKQ
+# https://www.youtube.com/watch?v=GhCZfCzn2l0
+# https://leanpub.com/eztoolsmanuals
+# ShellBags Explorer - For browsing shellbags data. Handles locked files.
+# https://download.ericzimmermanstools.com/ShellBagsExplorer.zip
+# SBECmd.exe must be in Modules\bin folder
+# Example: .\kape.exe --msource D:\kape\C --mdest D:\kape\out --module SBECmd
+```
+---
+
+[⬅️ Back to Core OS & File System Modules](../core_os_artifacts_modules.md)

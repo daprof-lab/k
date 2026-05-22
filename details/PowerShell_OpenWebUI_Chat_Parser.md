@@ -1,0 +1,50 @@
+# ⚙️ **Power Shell Open Web UI Chat Parser**
+### `File Name: PowerShell_OpenWebUI_Chat_Parser.mkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** DReneau  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Open WebUI Chat History Parser - Extract text-based chat conversations  (Docker Desktop).
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Power Shell Open Web UI Chat Parser to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Power Shell Open Web UI Chat Parser logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Power Shell Open Web UI Chat Parser timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: Open WebUI Chat History Parser - Extract text-based chat conversations  (Docker Desktop).
+Category: LiveResponse
+Author: DReneau
+Version: 1.0
+Id: 28a9649a-5871-4f65-9c1e-9da6f3c8a906
+ExportFormat: txt
+Processors:
+  -
+    Executable: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe
+    CommandLine: "$filePath = '%destinationDirectory%\\open-webuii_chat_history.txt'; try { $dockerInfo = (docker ps --all --filter 'name=webui' --format 'ID: {{.ID}} | Name: {{.Names}} | Image: {{.Image}} | Size: {{.Size}} | Status: {{.Status}} | Command: {{.Command}}' | Out-String).TrimEnd(); if (-not $dockerInfo) { Set-Content -Path $filePath -Value 'Docker Desktop Not Active' -Encoding UTF8; exit } $dockerLogs = docker ps --filter 'name=webui' --format '{{.ID}}' | ForEach-Object { docker logs $_ 2>&1 | ForEach-Object { if ($_ -match '<chat_history>') { $inChatHistory = $true; [System.Environment]::NewLine + $_ } elseif ($_ -match '</chat_history>') { $inChatHistory = $false; $_ + [System.Environment]::NewLine + [System.Environment]::NewLine } elseif ($inChatHistory) { $_ } } } | Out-String; $output = $dockerInfo + [System.Environment]::NewLine + [System.Environment]::NewLine + $dockerLogs; Set-Content -Path $filePath -Value $output -Encoding UTF8; } catch { Set-Content -Path $filePath -Value 'Docker Desktop Not Active' -Encoding UTF8; exit }"
+    ExportFormat: txt
+
+# Documentation
+# https://docs.docker.com/reference/cli/docker/container/ls/
+# This module combines "docker ps" and "docker Logs" filtering on the Open WebUI container ID from "docker ps."
+# Open WebUI chat conversations are extracted for all users and written to "open-webui_chat_history.txt."
+# Open WebUI chats conversations remain in the logs even after deleting the conversation in the app.
+# Example:
+# .\kape.exe --msource c:\ --mdest k:\Kape\Case_1234\mout --module powershell_openwebui_chat_parser
+```
+---
+
+[⬅️ Back to Application Execution & Data Modules](../applications_modules.md)

@@ -1,0 +1,61 @@
+# ⚙️ **Powershell Wireless Network Connections**
+### `File Name: Powershell_Wireless_Network_Connections.mkape`
+
+{% hint style="info" %}
+**Category:** Network & Web Browsers  
+**Author:** Max Zabuty  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Collecting Wi-Fi Profiles and Passwords
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Powershell Wireless Network Connections to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Powershell Wireless Network Connections logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Powershell Wireless Network Connections timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: Collecting Wi-Fi Profiles and Passwords
+Category: Network Activity
+Author: Max Zabuty
+Version: 1.0
+Id: e4d8433b-506b-4053-8226-e2c4938ccba2
+ExportFormat: csv
+Processors:
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: >
+            -Command "(netsh wlan show profiles) | Select-String '\:(.+)$' | ForEach-Object {
+                        $name=$_.Matches.Groups[1].Value.Trim();
+                        $profileDetails=(netsh wlan show profile name=$name key=clear);
+                        $password=($profileDetails | Select-String 'Key Content\W+\:(.+)$').Matches.Groups[1].Value.Trim();
+                        [PSCustomObject]@{ SSID=$name; PASSWORD=$password }
+                    } | Export-Csv -Encoding UTF8 -NoTypeInformation -Path '%destinationDirectory%\Wi-Fi Profiles.csv'"
+        ExportFormat: csv
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: >
+            -Command "(netsh wlan show profiles) | Select-String '\:(.+)$' | ForEach-Object {
+                        $name=$_.Matches.Groups[1].Value.Trim();
+                        $profileDetails=(netsh wlan show profile name=$name key=clear);
+                        $password=($profileDetails | Select-String 'Key Content\W+\:(.+)$').Matches.Groups[1].Value.Trim();
+                        [PSCustomObject]@{ SSID=$name; PASSWORD=$password }
+                    } | ConvertTo-Json | Out-File -Encoding UTF8 -FilePath '%destinationDirectory%\Wi-Fi Profiles.json'"
+        ExportFormat: json
+
+# Documentation
+# N/A
+```
+---
+
+[⬅️ Back to Network & Web Browsers Modules](../network_browsers_modules.md)

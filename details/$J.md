@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Core OS & File System  
-**Author:** Eric Zimmerman / Andrew Rathbun  
+**Author:** Eric Zimmerman and Andrew Rathbun  
 **Version:** 1.1
 {% endhint %}
 

@@ -1,4 +1,4 @@
-# 🎯 **Windows Routing Tables**
+# ⚙️ **Windows Routing Table**
 ### `File Name: Windows_RoutingTable.mkape`
 
 {% hint style="info" %}
@@ -10,19 +10,19 @@
 ---
 
 ## 📖 **Forensic Description & Value**
-Gathers the local OS networking routing table, identifying active default gateways.
+RoutingTable
 
 ---
 
 ## 🔍 **Investigative Use-Cases**
-* **Forensic Investigation**: Extract raw records from Windows Routing Tables to uncover evidence of user interactions and operational timelines.
-* **Compromise Timeline Auditing**: Correlate Windows Routing Tables events chronologically with external network indicators of compromise.
-* **Data Loss & Exfiltration Review**: Audit Windows Routing Tables storage states to identify potential exfiltration triggers or local file deletions.
+* **Bulk Automated Parsing**: Run Windows Routing Table to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Windows Routing Table logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Windows Routing Table timeline outputs to isolate exactly when unauthorized scripts were loaded.
 
 ---
 
-## ⚙️ **KAPE Target Definition (.tkape)**
-This section shows the actual configuration of how this target is defined in KAPE:
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
 
 ```yaml
 Description: RoutingTable
@@ -43,4 +43,4 @@ Processors:
 ```
 ---
 
-[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)
+[⬅️ Back to Network & Web Browsers Modules](../network_browsers_modules.md)

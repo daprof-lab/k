@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Kevin Pagano  
+**Author:** Kevin Pagano & CERT CWATCH - ALMOND  
 **Version:** 2.0
 {% endhint %}
 

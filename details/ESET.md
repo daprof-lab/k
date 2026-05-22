@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Drew Ervin / Phill Moore  
+**Author:** Drew Ervin, Phill Moore  
 **Version:** 1.3
 {% endhint %}
 

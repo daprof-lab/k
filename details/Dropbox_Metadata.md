@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Chad Tilbury / Andrew Rathbun  
+**Author:** Chad Tilbury and Andrew Rathbun  
 **Version:** 1.5
 {% endhint %}
 

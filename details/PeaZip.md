@@ -1,0 +1,62 @@
+# 🎯 **Pea Zip**
+### `File Name: PeaZip.tkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** Andrew Rathbun  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+PeaZip
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Pea Zip to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Pea Zip events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Pea Zip storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: PeaZip
+Author: Andrew Rathbun
+Version: 1.0
+Id: 38efad53-1899-4b73-8a07-e8d12712f579
+RecreateDirectories: true
+Targets:
+    -
+        Name: PeaZip Configuration Files
+        Category: FileKnowledge
+        Path: C:\Users\%user%\AppData\Roaming\PeaZip\
+        Recursive: true
+
+# Documentation
+# N/A
+#
+# This directory contained the following files in my research VM:
+# C:\Users\*\AppData\Roaming\PeaZip\conf-lastgood.txt
+# C:\Users\*\AppData\Roaming\PeaZip\custedit.txt
+# C:\Users\*\AppData\Roaming\PeaZip\bookmarks.txt
+# C:\Users\*\AppData\Roaming\PeaZip\conf.txt
+# The two conf*.txt files contained a history of archives that were recently opened with PeaZip
+# Each file was identical to each other and had 650ish lines of data after about 10 minutes of testing with PeaZip. Except much more for a user who uses PeaZip as their primary archiving program
+# Bookmarks.txt appeared to contain entries for the default bookmarks that ship with PeaZip as well as user added bookmarks
+# Within this file, it stores the equivalent  to a Shellbags-esque timestamp for the first time the user navigated to the bookmark and the last time
+# The most recently visited timestamp is overwritten each time the user visits that bookmark and a number above the timestamps is incremented for each visits
+# For instance, my Bookmarks.txt had this entry:
+# 4
+# 2021-03-28 15:37:36
+# 2021-03-28 11:02:20
+# 0
+# C:\Users\%user$\Downloads
+```
+---
+
+[⬅️ Back to Application Execution & Data Targets](../applications_targets.md)

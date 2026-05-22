@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** DReneau / Paul CABON  
+**Author:** DReneau, Paul CABON - CERT Cwatch - Almond  
 **Version:** 2.0
 {% endhint %}
 

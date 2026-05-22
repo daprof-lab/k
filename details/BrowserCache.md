@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Bjorn Vanhaeren / Reece394  
+**Author:** Bjorn Vanhaeren, Reece394  
 **Version:** 1.2
 {% endhint %}
 

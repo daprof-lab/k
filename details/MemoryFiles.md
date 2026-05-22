@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Memory & Virtualization  
-**Author:** Ahmed Elshaer / Teo Kia Meng  
+**Author:** Ahmed Elshaer, Teo Kia Meng  
 **Version:** 1.0
 {% endhint %}
 

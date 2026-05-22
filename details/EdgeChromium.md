@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Chad Tilbury / Andrew Rathbun  
+**Author:** Chad Tilbury, Andrew Rathbun, Reece394, Yogesh Khatri  
 **Version:** 1.4
 {% endhint %}
 

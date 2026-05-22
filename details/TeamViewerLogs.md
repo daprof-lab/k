@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Hadar Yudovich / Sam Smoker  
+**Author:** Hadar Yudovich, Sam Smoker  
 **Version:** 2.0
 {% endhint %}
 

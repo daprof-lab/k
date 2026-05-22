@@ -1,4 +1,4 @@
-# 🎯 **Windows ARP Cache Logs**
+# ⚙️ **Windows Arpcache**
 ### `File Name: Windows_ARPCache.mkape`
 
 {% hint style="info" %}
@@ -10,19 +10,19 @@
 ---
 
 ## 📖 **Forensic Description & Value**
-Pulls local Address Resolution Protocol (ARP) tables linking local IPs to MAC addresses.
+ARPCache
 
 ---
 
 ## 🔍 **Investigative Use-Cases**
-* **Forensic Investigation**: Extract raw records from Windows ARP Cache Logs to uncover evidence of user interactions and operational timelines.
-* **Compromise Timeline Auditing**: Correlate Windows ARP Cache Logs events chronologically with external network indicators of compromise.
-* **Data Loss & Exfiltration Review**: Audit Windows ARP Cache Logs storage states to identify potential exfiltration triggers or local file deletions.
+* **Bulk Automated Parsing**: Run Windows Arpcache to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Windows Arpcache logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Windows Arpcache timeline outputs to isolate exactly when unauthorized scripts were loaded.
 
 ---
 
-## ⚙️ **KAPE Target Definition (.tkape)**
-This section shows the actual configuration of how this target is defined in KAPE:
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
 
 ```yaml
 Description: ARPCache
@@ -43,4 +43,4 @@ Processors:
 ```
 ---
 
-[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)
+[⬅️ Back to Network & Web Browsers Modules](../network_browsers_modules.md)

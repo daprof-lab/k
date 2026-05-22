@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** piesecurity / Reece394  
+**Author:** piesecurity, Reece394  
 **Version:** 1.1
 {% endhint %}
 

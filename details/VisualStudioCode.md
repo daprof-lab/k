@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Sebastian Søgaard / ogmini  
+**Author:** Sebastian Søgaard, ogmini  
 **Version:** 2.0
 {% endhint %}
 

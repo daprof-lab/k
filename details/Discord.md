@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Christian Johansen / Matt Dawson  
+**Author:** Christian Johansen and Matt Dawson  
 **Version:** 2.0
 {% endhint %}
 

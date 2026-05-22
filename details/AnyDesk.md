@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Andrew Rathbun / Scott Hanson  
+**Author:** Andrew Rathbun, Scott Hanson, and Nicole Jao  
 **Version:** 1.5
 {% endhint %}
 

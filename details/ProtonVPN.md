@@ -1,0 +1,68 @@
+# 🎯 **Proton VPN**
+### `File Name: ProtonVPN.tkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** Andrew Rathbun, AlliedPterodactyl  
+**Version:** 1.1
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+ProtonVPN
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Proton VPN to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Proton VPN events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Proton VPN storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: ProtonVPN
+Author: Andrew Rathbun, AlliedPterodactyl
+Version: 1.1
+Id: 47dc8f4d-633d-4dcc-994d-2d62c3fa9c28
+RecreateDirectories: true
+Targets:
+    -
+        Name: ProtonVPN - Connection Logs
+        Category: ApplicationLogs
+        Path: C:\Users\%user%\AppData\Local\ProtonVPN\Logs
+        Comment: "Locates ProtonVPN connection logs."
+    -
+        Name: ProtonVPN - Connection Logs
+        Category: ApplicationLogs
+        Path: C:\Users\%user%\AppData\Local\Proton\Proton VPN\Logs
+        Comment: "Locates ProtonVPN client logs."
+    -
+        Name: ProtonVPN - Service Logs
+        Category: ApplicationLogs
+        Path: C:\Program Files\Proton\VPN\v*\ServiceData\Logs
+        Comment: "Locates ProtonVPN service logs."
+    -
+        Name: ProtonVPN - Configuration
+        Category: ApplicationLogs
+        Path: C:\Users\%user%\AppData\Local\Proton\Proton VPN\Storage
+        Comment: "Proton VPN configs including settings, recently connected server list and Proton VPN server IPs."
+
+# Documentation
+# ProtonVPN is a VPN application made by the people who make ProtonMail.
+# Logs are stored at the above location and, while they don't provide much information that can be parsed, you will be able to see when the user was connected to ProtonVPN.
+# Logs appear to follow the following convention: app.YYYY.MM.DD.0.txt, although the 0 could increment if the log gets too large, presumably. One log per day.
+# When I tested connecting to VPN and then disconnecting shortly thereafter, I found the following entries in the app.txt file:
+# 2020-09-04 06:48:29.1233 INFO Connect requested
+# 2020-09-04 06:48:43.6800 INFO Disconnect requested
+# Target v1.1, tested from Proton VPN v4.3.11
+# - Log file names are now in the format client-logs.txt and service-logs.txt respectively, with logs rolling over at ~400KB and renamed e.g. client-logs.1.txt
+# - client-logs.txt include connection events, connected VPN server external IP and window focus, service-logs.txt include VPN connection RemoteIP and wireguard server IP
+```
+---
+
+[⬅️ Back to Application Execution & Data Targets](../applications_targets.md)

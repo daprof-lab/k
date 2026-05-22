@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Andrew Rathbun / Yogesh Khatri  
+**Author:** Andrew Rathbun, Yogesh Khatri, Evangelos Dragonas  
 **Version:** 2.0
 {% endhint %}
 

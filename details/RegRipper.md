@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Core OS & File System  
-**Author:** ZeArioch / Phill Moore  
+**Author:** ZeArioch <https://{github,twitter}.com/ZeArioch>, Phill Moore, Andreas Hunkeler (@Karneades)  
 **Version:** 1.1
 {% endhint %}
 

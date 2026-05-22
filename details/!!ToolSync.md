@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Compound & Automation Packages  
-**Author:** Andrew Rathbun / Andreas Hunkeler  
+**Author:** Andrew Rathbun, Andreas Hunkeler (@Karneades)  
 **Version:** 1.0
 {% endhint %}
 

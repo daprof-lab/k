@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Andrew Rathbun / ogmini  
+**Author:** Andrew Rathbun, ogmini  
 **Version:** 2.0
 {% endhint %}
 

@@ -1,0 +1,57 @@
+# ⚙️ **Mftecmd $J**
+### `File Name: MFTECmd_$J.mkape`
+
+{% hint style="info" %}
+**Category:** Core OS & File System  
+**Author:** Eric Zimmerman, Thomas DIOT, Reece394  
+**Version:** 1.2
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+MFTECmd: process $J / $UsnJrnl$J files
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Mftecmd $J to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Mftecmd $J logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Mftecmd $J timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: 'MFTECmd: process $J / $UsnJrnl$J files'
+Category: FileSystem
+Author: Eric Zimmerman, Thomas DIOT, Reece394
+Version: 1.2
+Id: 5ef67a6b-5895-46bb-af2a-3339a3227e25
+BinaryUrl: https://download.ericzimmermanstools.com/MFTECmd.zip
+ExportFormat: csv
+FileMask: '$UsnJrnl%3A$J|$J|UsnJrnl-J|$UsnJrnl_*.bin'
+Processors:
+    -
+        Executable: MFTECmd.exe
+        CommandLine: -f %sourceFile% --csv %destinationDirectory%
+        ExportFormat: csv
+    -
+        Executable: MFTECmd.exe
+        CommandLine: -f %sourceFile% --json %destinationDirectory%
+        ExportFormat: json
+
+# Documentation
+# https://github.com/EricZimmerman/MFTECmd
+# https://docs.microsoft.com/en-us/windows/win32/fileio/change-journal-records
+# https://binaryforay.blogspot.com/2018/06/introducing-mftecmd.html
+# https://aboutdfir.com/toolsandartifacts/windows/mft-explorer-mftecmd/
+# https://www.youtube.com/watch?v=GhCZfCzn2l0
+# https://leanpub.com/eztoolsmanuals
+# KAPE collects the UsnJrnl artefact as "$J" while some tools, such as Velociraptor, collect it as "$UsnJrnl$J".
+```
+---
+
+[⬅️ Back to Core OS & File System Modules](../core_os_artifacts_modules.md)

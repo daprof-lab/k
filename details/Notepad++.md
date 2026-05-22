@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Banaanhangwagen / Matt Dawson  
+**Author:** Banaanhangwagen and Matt Dawson  
 **Version:** 2.0
 {% endhint %}
 

@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Drew Ervin / Paul Cabon  
+**Author:** Drew Ervin, Paul Cabon CERT Almond  
 **Version:** 2.0
 {% endhint %}
 

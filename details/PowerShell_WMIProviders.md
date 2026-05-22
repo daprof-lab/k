@@ -1,0 +1,49 @@
+# ⚙️ **Power Shell Wmiproviders**
+### `File Name: PowerShell_WMIProviders.mkape`
+
+{% hint style="info" %}
+**Category:** Core OS & File System  
+**Author:** Max Zabuty  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Output of WMI Event Consumers, Filters, and Filter to Consumer Binders - All to CSV and JSON
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Power Shell Wmiproviders to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Power Shell Wmiproviders logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Power Shell Wmiproviders timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: Output of WMI Event Consumers, Filters, and Filter to Consumer Binders - All to CSV and JSON
+Category: Persistence
+Author: Max Zabuty
+Version: 1.0
+Id: 8a5e83ae-4470-46d7-9812-5f713e0e0775
+ExportFormat: csv
+Processors:
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "New-Item -ItemType Directory -Path '%destinationDirectory%\WMI Providers' | Out-Null; foreach ($NameSpace in 'root\subscription','root\default') { Get-CimInstance -Namespace $NameSpace -Query 'select * from __EventConsumer' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, Name, SourceName, @{name='InsertionStringTemplates';expression={$_.InsertionStringTemplates -join ','}} | Export-Csv -Encoding UTF8 -Force -Append -NoTypeInformation -Path '%destinationDirectory%\WMI Providers\WMI Event Consumers.csv'; Get-CimInstance -Namespace $NameSpace -Query 'select * from __EventFilter' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, EventNamespace, Name, Query, QueryLanguage | Export-Csv -Encoding UTF8 -Force -Append -NoTypeInformation -Path '%destinationDirectory%\WMI Providers\WMI Event Filters.csv'; Get-CimInstance -Namespace $NameSpace -Query 'select * from __FilterToConsumerBinding' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, Consumer, Filter | Export-Csv -Encoding UTF8 -Force -Append -NoTypeInformation -Path '%destinationDirectory%\WMI Providers\WMI Filter Consumer Binders.csv' }"
+        ExportFormat: csv
+    -
+        Executable: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        CommandLine: -Command "New-Item -ItemType Directory -Path '%destinationDirectory%\WMI Providers' | Out-Null; foreach ($NameSpace in 'root\subscription','root\default') { Get-CimInstance -Namespace $NameSpace -Query 'select * from __EventConsumer' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, Name, SourceName, @{name='InsertionStringTemplates';expression={$_.InsertionStringTemplates -join ','}} | ConvertTo-Json | Out-File -Encoding UTF8 -FilePath '%destinationDirectory%\WMI Providers\WMI Event Consumers.json'; Get-CimInstance -Namespace $NameSpace -Query 'select * from __EventFilter' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, EventNamespace, Name, Query, QueryLanguage | ConvertTo-Json | Out-File -Encoding UTF8 -FilePath '%destinationDirectory%\WMI Providers\WMI Event Filters.json'; Get-CimInstance -Namespace $NameSpace -Query 'select * from __FilterToConsumerBinding' | Select @{name='CreatorSID';expression={$_.CreatorSID -join ','}}, Consumer, Filter | ConvertTo-Json | Out-File -Encoding UTF8 -FilePath '%destinationDirectory%\WMI Providers\WMI Filter Consumer Binders.json' }"
+        ExportFormat: json
+
+# Documentation
+# https://learn.microsoft.com/en-us/windows/win32/wmisdk/wmi-providers
+```
+---
+
+[⬅️ Back to Core OS & File System Modules](../core_os_artifacts_modules.md)

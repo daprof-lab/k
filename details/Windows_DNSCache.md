@@ -1,4 +1,4 @@
-# 🎯 **Windows DNS Cache Logs**
+# ⚙️ **Windows Dnscache**
 ### `File Name: Windows_DNSCache.mkape`
 
 {% hint style="info" %}
@@ -10,19 +10,19 @@
 ---
 
 ## 📖 **Forensic Description & Value**
-Collects active system DNS lookup records, mapping queried domains to resolving IPs.
+DNSCache
 
 ---
 
 ## 🔍 **Investigative Use-Cases**
-* **Forensic Investigation**: Extract raw records from Windows DNS Cache Logs to uncover evidence of user interactions and operational timelines.
-* **Compromise Timeline Auditing**: Correlate Windows DNS Cache Logs events chronologically with external network indicators of compromise.
-* **Data Loss & Exfiltration Review**: Audit Windows DNS Cache Logs storage states to identify potential exfiltration triggers or local file deletions.
+* **Bulk Automated Parsing**: Run Windows Dnscache to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Windows Dnscache logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Windows Dnscache timeline outputs to isolate exactly when unauthorized scripts were loaded.
 
 ---
 
-## ⚙️ **KAPE Target Definition (.tkape)**
-This section shows the actual configuration of how this target is defined in KAPE:
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
 
 ```yaml
 Description: DNSCache
@@ -43,4 +43,4 @@ Processors:
 ```
 ---
 
-[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)
+[⬅️ Back to Network & Web Browsers Modules](../network_browsers_modules.md)

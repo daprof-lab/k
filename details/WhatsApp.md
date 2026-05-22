@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Matt Dawson / SolitudePy  
+**Author:** Matt Dawson, SolitudePy  
 **Version:** 1.1
 {% endhint %}
 

@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Compound & Automation Packages  
-**Author:** Tony Knutson / Andrew Rathbun  
+**Author:** Tony Knutson and Andrew Rathbun  
 **Version:** 1.2
 {% endhint %}
 

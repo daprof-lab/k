@@ -1,0 +1,55 @@
+# 🎯 **Microsoft Sticky Notes**
+### `File Name: MicrosoftStickyNotes.tkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** Andrew Rathbun  
+**Version:** 1.1
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Microsoft Sticky Notes
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Microsoft Sticky Notes to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Microsoft Sticky Notes events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Microsoft Sticky Notes storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: Microsoft Sticky Notes
+Author: Andrew Rathbun
+Version: 1.1
+Id: 759b36a9-3637-474e-9bc4-88dd4d54472e
+RecreateDirectories: true
+Targets:
+    -
+        Name: Microsoft Sticky Notes - Windows 7, 8, and 10 version 1511 and earlier
+        Category: Apps
+        Path: C:\Users\%user%\AppData\Roaming\Microsoft\StickyNotes\
+        FileMask: StickyNotes.snt
+    -
+        Name: Microsoft Sticky Notes - 1607 and later
+        Category: Apps
+        Path: C:\Users\%user%\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes*\LocalState\
+        FileMask: plum.sqlite*
+
+# Documentation
+# https://www.datadigitally.com/2019/06/windows-10-sticky-notes-location.html
+# https://www.forensafe.com/blogs/stickynotes.html
+# Microsoft Sticky Notes is a useful feature in Windows operating systems versions 7+. However, the notes are stored differently depending on the version of Windows.
+# I have not yet tested the Stickynotes.snt for earlier versions of Windows. When I do, I will update this target with my results.
+# For Windows 10 version 1607 and later, use your favorite SQL tool to view the .sqlite, .sqlite-wal and .sqlite-shm files. You will notice notes will be stored in the Note database.
+# The SQLite database(s) this Target collects can be parsed with SQLECmd using the following map(s): https://github.com/EricZimmerman/SQLECmd/blob/master/SQLMap/Maps/Windows_MicrosoftStickyNotes_NotesDB.smap
+```
+---
+
+[⬅️ Back to Application Execution & Data Targets](../applications_targets.md)

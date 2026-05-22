@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Sebastian Søgaard / Yogesh Khatri  
+**Author:** Sebastian Søgaard, Yogesh Khatri  
 **Version:** 1.1
 {% endhint %}
 

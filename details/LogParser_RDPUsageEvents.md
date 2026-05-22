@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Brian Maloney / Thomas DIOT  
+**Author:** Brian Maloney (idea by @0x47617279), Thomas DIOT (Qazeer)  
 **Version:** 1.1
 {% endhint %}
 

@@ -1,4 +1,4 @@
-# 🎯 **Windows IPConfig Details**
+# ⚙️ **Windows Ipconfig**
 ### `File Name: Windows_IPConfig.mkape`
 
 {% hint style="info" %}
@@ -10,19 +10,19 @@
 ---
 
 ## 📖 **Forensic Description & Value**
-Extracts current network adapter configurations, hardware MACs, and assigned IP ranges.
+IPConfig
 
 ---
 
 ## 🔍 **Investigative Use-Cases**
-* **Forensic Investigation**: Extract raw records from Windows IPConfig Details to uncover evidence of user interactions and operational timelines.
-* **Compromise Timeline Auditing**: Correlate Windows IPConfig Details events chronologically with external network indicators of compromise.
-* **Data Loss & Exfiltration Review**: Audit Windows IPConfig Details storage states to identify potential exfiltration triggers or local file deletions.
+* **Bulk Automated Parsing**: Run Windows Ipconfig to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Windows Ipconfig logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Windows Ipconfig timeline outputs to isolate exactly when unauthorized scripts were loaded.
 
 ---
 
-## ⚙️ **KAPE Target Definition (.tkape)**
-This section shows the actual configuration of how this target is defined in KAPE:
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
 
 ```yaml
 Description: IPConfig
@@ -43,4 +43,4 @@ Processors:
 ```
 ---
 
-[⬅️ Back to Network & Web Browsers Targets](../network_browsers_targets.md)
+[⬅️ Back to Network & Web Browsers Modules](../network_browsers_modules.md)

@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Andrew Rathbun / Georg Lauenstein  
+**Author:** Andrew Rathbun, Georg Lauenstein (sure[secure])  
 **Version:** 1.1
 {% endhint %}
 

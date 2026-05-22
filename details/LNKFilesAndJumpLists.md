@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Core OS & File System  
-**Author:** Eric Zimmerman / Andrew Rathbun / Yogesh Khatri  
+**Author:** Eric Zimmerman, Andrew Rathbun, Yogesh Khatri  
 **Version:** 1.3
 {% endhint %}
 

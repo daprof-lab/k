@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Cloud Storage & Remote Access  
-**Author:** Chad Tilbury / Brian Maloney  
+**Author:** Chad Tilbury, Brian Maloney  
 **Version:** 2.0
 {% endhint %}
 

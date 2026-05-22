@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Core OS & File System  
-**Author:** Eric Zimmerman / esecrpm  
+**Author:** Eric Zimmerman, esecrpm  
 **Version:** 1.1
 {% endhint %}
 

@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Chris Kudless / Georg Lauenstein  
+**Author:** Chris Kudless, Georg Lauenstein  
 **Version:** 1.1
 {% endhint %}
 

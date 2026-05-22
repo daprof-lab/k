@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Matt Dawson / Andrew Rathbun  
+**Author:** Matt Dawson and Andrew Rathbun  
 **Version:** 3.0
 {% endhint %}
 

@@ -1,0 +1,50 @@
+# ⚙️ **Power Shell Open Web UI Document Parser**
+### `File Name: PowerShell_OpenWebUI_Document_Parser.mkape`
+
+{% hint style="info" %}
+**Category:** Application Execution & Data  
+**Author:** DReneau  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Open WebUI Document Upload Parser - Extract text from uploaded documents (Docker Desktop).
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Bulk Automated Parsing**: Run Power Shell Open Web UI Document Parser to parse multiple folders containing acquired target evidence in a single instruction.
+* **Structured Report Output**: Generate sorted, structured CSV/JSON databases from raw Power Shell Open Web UI Document Parser logs to index file anomalies.
+* **Incident Impact Assessment**: Leverage Power Shell Open Web UI Document Parser timeline outputs to isolate exactly when unauthorized scripts were loaded.
+
+---
+
+## ⚙️ **KAPE Module Definition (.mkape)**
+This section shows the actual configuration of how this module is defined in KAPE:
+
+```yaml
+Description: Open WebUI Document Upload Parser - Extract text from uploaded documents (Docker Desktop).
+Category: LiveResponse
+Author: DReneau
+Version: 1.0
+Id: 45492e28-2296-48ec-9fd5-762b42bf58bc
+ExportFormat: txt
+Processors:
+  -
+    Executable: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe
+    CommandLine: "$filePath = '%destinationDirectory%\\open-webui_uploaded_documents.txt'; try { $dockerInfo = (docker ps --all --filter 'name=webui' --format 'ID: {{.ID}} | Name: {{.Names}} | Image: {{.Image}} | Size: {{.Size}} | Status: {{.Status}} | Command: {{.Command}}' | Out-String).TrimEnd(); if (-not $dockerInfo) { Set-Content -Path $filePath -Value 'Docker Desktop Not Active' -Encoding UTF8; exit } $dockerLogs = docker ps --filter 'name=webui' --format '{{.ID}}' | ForEach-Object { docker logs $_ 2>&1 | ForEach-Object { if ($_ -match 'contexts \\[') { $inBlock = $true; [System.Environment]::NewLine + $_ } elseif ($_ -match '\\]\\}\\]') { $inBlock = $false; $_ + [System.Environment]::NewLine + [System.Environment]::NewLine } elseif ($inBlock) { $_ } } } | Out-String; $output = $dockerInfo + [System.Environment]::NewLine + [System.Environment]::NewLine + $dockerLogs; Set-Content -Path $filePath -Value $output -Encoding UTF8; } catch { Set-Content -Path $filePath -Value 'Docker Desktop Not Active' -Encoding UTF8; exit }"
+    ExportFormat: txt
+
+# Documentation
+# https://docs.docker.com/reference/cli/docker/container/ls/
+# This module combines "docker ps" and "docker Logs" filtering on the Open WebUI container ID from "docker ps."
+# Text from uploaded documents is then extracted and written to "open-webui_uploaded_documents.txt."
+# Open WebUI documents remain in the logs even after deleting the chat conversation in the app.
+# Example:
+# .\kape.exe --msource c:\ --mdest k:\Kape\Case_1234\mout --module powershell_openwebui_document_parser
+```
+---
+
+[⬅️ Back to Application Execution & Data Modules](../applications_modules.md)

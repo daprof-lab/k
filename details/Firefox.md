@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Eric Zimmerman / Andrew Rathbun  
+**Author:** Eric Zimmerman and Andrew Rathbun  
 **Version:** 1.2
 {% endhint %}
 

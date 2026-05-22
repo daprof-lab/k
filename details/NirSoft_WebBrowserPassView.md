@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Network & Web Browsers  
-**Author:** Pedro Sanchez Cordero  
+**Author:** Pedro Sanchez Cordero (conexioninversa)  
 **Version:** 1.1
 {% endhint %}
 

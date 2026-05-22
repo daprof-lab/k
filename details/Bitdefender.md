@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Threat Hunting, AV & Logs  
-**Author:** Drew Ervin / Ahmed Elshaer  
+**Author:** Drew Ervin, Ahmed Elshaer  
 **Version:** 1.1
 {% endhint %}
 

@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Application Execution & Data  
-**Author:** Nisarg Suthar / SolitudePy  
+**Author:** Nisarg Suthar, SolitudePy  
 **Version:** 1.1
 {% endhint %}
 

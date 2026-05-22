@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Core OS & File System  
-**Author:** Lee Whitfield / Thomas DIOT  
+**Author:** Lee Whitfield, Thomas DIOT (Qazeer)  
 **Version:** 1.1
 {% endhint %}
 

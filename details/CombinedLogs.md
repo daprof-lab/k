@@ -3,7 +3,7 @@
 
 {% hint style="info" %}
 **Category:** Compound & Automation Packages  
-**Author:** Mike Cary / Mark Hallman  
+**Author:** Mike Cary, Mark Hallman added the USBDevicelogs target, Thomas DIOT (Qazeer) added the .NET CLR UsageLogs and PowerShell Transcripts target  
 **Version:** 1.3
 {% endhint %}
 

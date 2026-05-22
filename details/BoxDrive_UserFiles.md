@@ -1,0 +1,58 @@
+# 🎯 **Box Drive User Files**
+### `File Name: BoxDrive_UserFiles.tkape`
+
+{% hint style="info" %}
+**Category:** Cloud Storage & Remote Access  
+**Author:** Chad Tilbury  
+**Version:** 1.0
+{% endhint %}
+
+---
+
+## 📖 **Forensic Description & Value**
+Box Cloud Storage Files
+
+---
+
+## 🔍 **Investigative Use-Cases**
+* **Forensic Investigation**: Extract raw records from Box Drive User Files to uncover evidence of user interactions and operational timelines.
+* **Compromise Timeline Auditing**: Correlate Box Drive User Files events chronologically with external network indicators of compromise.
+* **Data Loss & Exfiltration Review**: Audit Box Drive User Files storage states to identify potential exfiltration triggers or local file deletions.
+
+---
+
+## ⚙️ **KAPE Target Definition (.tkape)**
+This section shows the actual configuration of how this target is defined in KAPE:
+
+```yaml
+Description: Box Cloud Storage Files
+Author: Chad Tilbury
+Version: 1.0
+Id: 6c6cef0b-4213-4903-acc4-d85430226a19
+RecreateDirectories: true
+Targets:
+    -
+        Name: Box Drive User Files
+        Category: Apps
+        Path: C:\Users\%user%\Box\
+        Recursive: true
+        Comment: "Caution! This target will collect Box Drive contents from the local drive AND on-demand cloud files. Ensure your scope of authority permits cloud collections before use or isolate system from network"
+    -
+        Name: Box Sync User Files
+        Category: Apps
+        Path: C:\Users\%user%\Box Sync\
+        Recursive: true
+
+# This target collects Box user files from the default locations but folders can be user-defined.  Check Box_Streem logs (Box Drive) or sync_root_folder.txt (Box Sync) to see if locations have been changed.
+
+# Documentation
+# https://cyberforensicator.com/2018/04/21/cloud-forensics-box/
+# https://dpmforensics.com/2017/03/12/cloud-forensics-box/
+# https://www.sans.org/blog/cloud-storage-acquisition-from-endpoint-devices
+# https://www.researchgate.net/publication/340816615_Forensic_Analysis_in_Cloud_Storage_with_Live_Forensics_in_Windows_Adrive_Case_Study
+# https://www.forensafe.com/blogs/box.html
+# Box is a single, secure, easy-to-use platform built for the entire content lifecycle, from file creation and sharing, to co-editing, e-signature, classification, and retention.
+```
+---
+
+[⬅️ Back to Cloud Storage & Remote Access Targets](../cloud_remote_targets.md)
